@@ -1,0 +1,56 @@
+{
+  "topMenuItems": [
+    {
+      "id": "dashboard",
+      "title": "Dashboard",
+      "icon": "dashboard.svg",
+      "route": "/dashboard",
+      "type": "single",
+      "order": 1
+    },
+     {
+      "id": "GSTIN",
+      "title": "GSTIN Management",
+      "icon": "dashboard.svg",
+      "route": "/gstin/list",
+      "type": "single",
+      "order": 2
+    },
+     {
+      "id": "IMS/PR",
+      "title": "IMS Invoice / PR",
+      "icon": "dashboard.svg",
+      "route": "/gstin",
+      "type": "single",
+      "order": 3
+    },
+  
+    {
+      "id": "reporting",
+      "title": "Reporting",
+      "icon": "reporting.svg",
+      "route": "/reporting",
+      "type": "single",
+      "order": 4
+    }
+
+  ],
+  "bottomMenuItems": [
+    {
+      "id": "support",
+      "title": "Support",
+      "icon": "support.svg",
+      "route": "/support",
+      "type": "single",
+      "order": 1
+    },
+    {
+      "id": "settings",
+      "title": "Settings",
+      "icon": "settings.svg",
+      "route": "/settings",
+      "type": "single",
+      "order": 2
+    }
+  ]
+}

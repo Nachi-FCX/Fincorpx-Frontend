@@ -1,0 +1,702 @@
+// FnxDialog Component Styles - PrimeVue Dialog Integration
+
+// CSS Custom Properties for theming
+:root {
+  // Dialog backdrop
+  --fnx-dialog-backdrop: rgba(0, 0, 0, 0.6);
+  --fnx-dialog-backdrop-blur: 12px;
+  
+  // Dialog container
+  --fnx-dialog-bg: #ffffff;
+  --fnx-dialog-border: #d1d5db;
+  --fnx-dialog-border-radius: 16px;
+  --fnx-dialog-shadow: 0 32px 64px -12px rgba(0, 0, 0, 0.35), 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.08);
+  
+  // Dialog header
+  --fnx-dialog-header-bg: #ffffff;
+  --fnx-dialog-header-border: #e5e7eb;
+  --fnx-dialog-header-padding: 1.5rem;
+  --fnx-dialog-header-text: #1f2937;
+  --fnx-dialog-header-font-size: 1.125rem;
+  --fnx-dialog-header-font-weight: 600;
+  
+  // Dialog content
+  --fnx-dialog-content-bg: #ffffff;
+  --fnx-dialog-content-padding: 1.5rem;
+  --fnx-dialog-content-text: #374151;
+  
+  // Dialog footer
+  --fnx-dialog-footer-bg: #f9fafb;
+  --fnx-dialog-footer-border: #e5e7eb;
+  --fnx-dialog-footer-padding: 1rem 1.5rem;
+  
+  // Dialog controls
+  --fnx-dialog-close-color: #6b7280;
+  --fnx-dialog-close-hover-color: #374151;
+  --fnx-dialog-close-hover-bg: #f3f4f6;
+  
+  // Z-index
+  --fnx-dialog-z-index: 1100;
+  --fnx-dialog-backdrop-z-index: 1099;
+}
+
+// Dark theme variables
+:root[data-theme="dark"] {
+  --fnx-dialog-backdrop: rgba(0, 0, 0, 0.6);
+  --fnx-dialog-bg: #1f2937;
+  --fnx-dialog-border: #374151;
+  --fnx-dialog-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  
+  --fnx-dialog-header-bg: #1f2937;
+  --fnx-dialog-header-border: #374151;
+  --fnx-dialog-header-text: #f9fafb;
+  
+  --fnx-dialog-content-bg: #1f2937;
+  --fnx-dialog-content-text: #d1d5db;
+  
+  --fnx-dialog-footer-bg: #111827;
+  --fnx-dialog-footer-border: #374151;
+  
+  --fnx-dialog-close-color: #9ca3af;
+  --fnx-dialog-close-hover-color: #f3f4f6;
+  --fnx-dialog-close-hover-bg: #374151;
+}
+
+// Override PrimeVue Dialog styles with FnxDialog custom styling
+:deep(.p-dialog-mask) {
+  background: var(--fnx-dialog-backdrop) !important;
+  backdrop-filter: blur(var(--fnx-dialog-backdrop-blur)) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(var(--fnx-dialog-backdrop-blur)) saturate(180%) !important;
+}
+
+:deep(.p-dialog) {
+  background: var(--fnx-dialog-bg) !important;
+  border: 1px solid var(--fnx-dialog-border) !important;
+  border-radius: var(--fnx-dialog-border-radius) !important;
+  box-shadow: var(--fnx-dialog-shadow) !important;
+  
+  // Size variants
+  &.fnx-dialog--small,
+  &.fnx-dialog--s {
+    width: 95vw !important;
+    max-width: 400px !important;
+    min-width: 300px !important;
+  }
+  
+  &.fnx-dialog--medium,
+  &.fnx-dialog--m {
+    width: 90vw !important;
+    max-width: 500px !important;
+    min-width: 350px !important;
+  }
+  
+  &.fnx-dialog--large,
+  &.fnx-dialog--l {
+    width: 95vw !important;
+    max-width: 800px !important;
+    min-width: 600px !important;
+  }
+  
+  &.fnx-dialog--xl {
+    width: 95vw !important;
+    max-width: 1200px !important;
+    min-width: 800px !important;
+  }
+  
+  &.fnx-dialog--fullscreen {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+  }
+  
+  // Theme variants
+  &.fnx-dialog--minimal {
+    border: none !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+  }
+  
+  &.fnx-dialog--bordered {
+    border-width: 2px !important;
+  }
+  
+  // Rounded corners
+  &.fnx-dialog--rounded {
+    border-radius: 12px !important;
+  }
+  
+  // Shadow variants
+  &.fnx-dialog--shadow {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+  }
+  
+  // Maximized state
+  &.fnx-dialog--maximized {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0 !important;
+    transform: none !important;
+  }
+}
+
+:deep(.p-dialog-header) {
+  background: var(--fnx-dialog-header-bg) !important;
+  border-bottom: 1px solid var(--fnx-dialog-header-border) !important;
+  padding: var(--fnx-dialog-header-padding) !important;
+  
+  .p-dialog-title {
+    color: var(--fnx-dialog-header-text) !important;
+    font-size: var(--fnx-dialog-header-font-size) !important;
+    font-weight: var(--fnx-dialog-header-font-weight) !important;
+  }
+}
+
+:deep(.p-dialog-content) {
+  background: var(--fnx-dialog-content-bg) !important;
+  color: var(--fnx-dialog-content-text) !important;
+  padding: var(--fnx-dialog-content-padding) !important;
+}
+
+:deep(.p-dialog-footer) {
+  background: var(--fnx-dialog-footer-bg) !important;
+  border-top: 1px solid var(--fnx-dialog-footer-border) !important;
+  padding: var(--fnx-dialog-footer-padding) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 0.75rem !important;
+}
+
+:deep(.p-dialog-header-icons) {
+  .p-dialog-header-icon {
+    width: 2rem !important;
+    height: 2rem !important;
+    color: var(--fnx-dialog-close-color) !important;
+    border-radius: 4px !important;
+    transition: all 0.2s ease !important;
+    
+    &:hover {
+      color: var(--fnx-dialog-close-hover-color) !important;
+      background: var(--fnx-dialog-close-hover-bg) !important;
+    }
+    
+    &:focus {
+      outline: none !important;
+      box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3) !important;
+    }
+  }
+}
+
+// Responsive overrides for PrimeVue Dialog
+@media (max-width: 768px) {
+  :deep(.p-dialog) {
+    &.fnx-dialog--small,
+    &.fnx-dialog--medium,
+    &.fnx-dialog--large {
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 !important;
+    }
+  }
+  
+  :deep(.p-dialog-header) {
+    padding: 1rem !important;
+  }
+  
+  :deep(.p-dialog-content) {
+    padding: 1rem !important;
+  }
+  
+  :deep(.p-dialog-footer) {
+    padding: 0.75rem 1rem !important;
+    flex-direction: column-reverse !important;
+    gap: 0.5rem !important;
+    
+    > * {
+      width: 100% !important;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  :deep(.p-dialog) {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 90vh !important;
+    border-radius: 1rem 1rem 0 0 !important;
+    margin: 0 !important;
+  }
+}
+
+// Dialog backdrop/mask
+.fnx-dialog-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--fnx-dialog-backdrop) !important;
+  backdrop-filter: blur(var(--fnx-dialog-backdrop-blur)) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(var(--fnx-dialog-backdrop-blur)) saturate(180%) !important;
+  z-index: var(--fnx-dialog-backdrop-z-index);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  
+  &.fnx-dialog-mask--modal {
+    pointer-events: auto;
+  }
+  
+  &.fnx-dialog-mask--non-modal {
+    pointer-events: none;
+  }
+}
+
+// Dialog container
+.fnx-dialog {
+  background: var(--fnx-dialog-bg) !important;
+  border: 1px solid var(--fnx-dialog-border) !important;
+  border-radius: var(--fnx-dialog-border-radius) !important;
+  box-shadow: var(--fnx-dialog-shadow) !important;
+  display: flex;
+  flex-direction: column;
+  max-height: 90vh;
+  max-width: 90vw;
+  position: relative;
+  z-index: var(--fnx-dialog-z-index);
+  pointer-events: auto;
+  
+  // Ensure white background is always prominent
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff !important;
+    border-radius: inherit;
+    z-index: -1;
+  }
+  
+  // Size variants
+  &.fnx-dialog--small {
+    width: 400px;
+    min-width: 300px;
+  }
+  
+  &.fnx-dialog--medium {
+    width: 600px;
+    min-width: 400px;
+  }
+  
+  &.fnx-dialog--large {
+    width: 800px;
+    min-width: 600px;
+  }
+  
+  &.fnx-dialog--fullscreen {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+    margin: 0;
+  }
+  
+  // Theme variants
+  &.fnx-dialog--minimal {
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  
+  &.fnx-dialog--bordered {
+    border-width: 2px;
+  }
+  
+  // Rounded corners
+  &.fnx-dialog--rounded {
+    border-radius: 12px;
+  }
+  
+  // Shadow variants
+  &.fnx-dialog--shadow {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+  
+  // Draggable state
+  &.fnx-dialog--dragging {
+    user-select: none;
+    cursor: move;
+  }
+  
+  // Resizable state
+  &.fnx-dialog--resizing {
+    user-select: none;
+  }
+  
+  // Maximized state
+  &.fnx-dialog--maximized {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: none !important;
+    max-height: none !important;
+    top: 0 !important;
+    left: 0 !important;
+    border-radius: 0;
+    transform: none !important;
+  }
+}
+
+// Dialog header
+.fnx-dialog-header {
+  background: var(--fnx-dialog-header-bg);
+  border-bottom: 1px solid var(--fnx-dialog-header-border);
+  padding: var(--fnx-dialog-header-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  
+  &.fnx-dialog-header--draggable {
+    cursor: move;
+    user-select: none;
+  }
+}
+
+.fnx-dialog-title {
+  color: var(--fnx-dialog-header-text);
+  font-size: var(--fnx-dialog-header-font-size);
+  font-weight: var(--fnx-dialog-header-font-weight);
+  margin: 0;
+  flex: 1;
+  line-height: 1.5;
+}
+
+// Dialog header icons
+.fnx-dialog-header-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fnx-dialog-header-icon {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: transparent;
+  color: var(--fnx-dialog-close-color);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: var(--fnx-dialog-close-hover-color);
+    background: var(--fnx-dialog-close-hover-bg);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+  }
+  
+  i {
+    font-size: 1rem;
+  }
+}
+
+// Dialog content
+.fnx-dialog-content {
+  background: var(--fnx-dialog-content-bg);
+  color: var(--fnx-dialog-content-text);
+  padding: var(--fnx-dialog-content-padding);
+  flex: 1;
+  overflow: auto;
+  
+  &.fnx-dialog-content--no-padding {
+    padding: 0;
+  }
+}
+
+// Dialog footer
+.fnx-dialog-footer {
+  background: var(--fnx-dialog-footer-bg);
+  border-top: 1px solid var(--fnx-dialog-footer-border);
+  padding: var(--fnx-dialog-footer-padding);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+// Resize handles
+.fnx-dialog-resize-handle {
+  position: absolute;
+  background: transparent;
+  
+  &.fnx-dialog-resize-handle--n {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    cursor: n-resize;
+  }
+  
+  &.fnx-dialog-resize-handle--s {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    cursor: s-resize;
+  }
+  
+  &.fnx-dialog-resize-handle--e {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 4px;
+    cursor: e-resize;
+  }
+  
+  &.fnx-dialog-resize-handle--w {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    cursor: w-resize;
+  }
+  
+  &.fnx-dialog-resize-handle--ne {
+    top: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    cursor: ne-resize;
+  }
+  
+  &.fnx-dialog-resize-handle--nw {
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    cursor: nw-resize;
+  }
+  
+  &.fnx-dialog-resize-handle--se {
+    bottom: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    cursor: se-resize;
+  }
+  
+  &.fnx-dialog-resize-handle--sw {
+    bottom: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    cursor: sw-resize;
+  }
+}
+
+// Position classes
+.fnx-dialog-mask--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.fnx-dialog-mask--top {
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+.fnx-dialog-mask--bottom {
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+.fnx-dialog-mask--left {
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 2rem;
+}
+
+.fnx-dialog-mask--right {
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 2rem;
+}
+
+.fnx-dialog-mask--topleft {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+
+.fnx-dialog-mask--topright {
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+.fnx-dialog-mask--bottomleft {
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+
+.fnx-dialog-mask--bottomright {
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 2rem;
+}
+
+// Animations
+.fnx-dialog-enter-active,
+.fnx-dialog-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fnx-dialog-enter-from,
+.fnx-dialog-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.fnx-dialog-mask-enter-active,
+.fnx-dialog-mask-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fnx-dialog-mask-enter-from,
+.fnx-dialog-mask-leave-to {
+  opacity: 0;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .fnx-dialog-mask {
+    padding: 0.5rem;
+  }
+  
+  .fnx-dialog {
+    &.fnx-dialog--small,
+    &.fnx-dialog--medium,
+    &.fnx-dialog--large {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+    }
+  }
+  
+  .fnx-dialog-header {
+    padding: 1rem;
+  }
+  
+  .fnx-dialog-content {
+    padding: 1rem;
+  }
+  
+  .fnx-dialog-footer {
+    padding: 0.75rem 1rem;
+    flex-direction: column-reverse;
+    gap: 0.5rem;
+    
+    > * {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .fnx-dialog-mask {
+    padding: 0;
+    align-items: flex-end !important;
+    justify-content: center !important;
+  }
+  
+  .fnx-dialog {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 90vh !important;
+    border-radius: 1rem 1rem 0 0 !important;
+    margin: 0 !important;
+  }
+}
+
+// RTL support
+[dir="rtl"] {
+  .fnx-dialog-header {
+    direction: rtl;
+  }
+  
+  .fnx-dialog-footer {
+    justify-content: flex-start;
+  }
+  
+  .fnx-dialog-header-icons {
+    order: -1;
+  }
+}
+
+// High contrast mode
+@media (prefers-contrast: high) {
+  .fnx-dialog {
+    border-width: 2px;
+  }
+  
+  .fnx-dialog-header,
+  .fnx-dialog-footer {
+    border-width: 2px;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .fnx-dialog-enter-active,
+  .fnx-dialog-leave-active,
+  .fnx-dialog-mask-enter-active,
+  .fnx-dialog-mask-leave-active {
+    transition: none;
+  }
+  
+  .fnx-dialog-header-icon {
+    transition: none;
+  }
+}
+
+// Print styles
+@media print {
+  .fnx-dialog-mask {
+    position: static;
+    background: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  
+  .fnx-dialog {
+    box-shadow: none;
+    border: 1px solid #000;
+    max-width: none;
+    max-height: none;
+    width: 100%;
+    height: auto;
+  }
+  
+  .fnx-dialog-header-icons {
+    display: none;
+  }
+}
