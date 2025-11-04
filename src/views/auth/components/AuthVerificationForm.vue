@@ -9,7 +9,7 @@
       <!-- Email Input (show when verification type is email) -->
       <div v-if="verificationType === 'email'" class="form-group">
         <!-- <label for="email" class="form-label">Email</label> -->
-        <FnxInputtext
+        <FcxInputtext
           id="email"
           name="email"
           placeholder="Enter your email address"
@@ -23,7 +23,7 @@
       <!-- Phone Input (show when verification type is phone) -->
       <div v-else-if="verificationType === 'phone'" class="form-group">
         <!-- <label for="phone" class="form-label">Phone Number</label> -->
-        <FnxInputtext
+        <FcxInputtext
           id="phone"
           name="phone"
           placeholder="Enter your phone number"
@@ -64,7 +64,7 @@
       </div>
 
       <!-- Submit Button -->
-      <FnxButton
+      <FcxButton
         type="submit"
         :label="dynamicContent.buttonLabel"
         severity="success"

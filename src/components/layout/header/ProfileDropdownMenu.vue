@@ -45,7 +45,7 @@
     </div>
 
     <!-- Logout Confirmation Dialog -->
-    <FnxConfirmDialog
+    <FcxConfirmDialog
       :visible="showLogoutDialog"
       title="Confirm Logout"
       message="Are you sure you want to log out of your account? You will need to sign in again to access your dashboard."
@@ -64,7 +64,7 @@
 import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import type { UserProfile } from '../sidebar/types/sidebar-types'
-import { FnxConfirmDialog } from '@/components/customcomponents'
+import { FcxConfirmDialog } from '@/components/customcomponents'
 import { useAuthStore } from '@/views/auth/stores/authStore'
 
 // Profile menu item interface

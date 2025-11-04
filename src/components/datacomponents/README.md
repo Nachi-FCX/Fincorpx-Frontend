@@ -1,4 +1,4 @@
-# FnxDataTable Component
+# FcxDataTable Component
 
 A comprehensive, reusable DataTable component built on top of PrimeVue's DataTable with enhanced features and consistent theming.
 
@@ -19,15 +19,15 @@ A comprehensive, reusable DataTable component built on top of PrimeVue's DataTab
 
 ```vue
 <template>
-  <FnxDataTable :value="data">
+  <FcxDataTable :value="data">
     <Column field="id" header="ID" sortable />
     <Column field="name" header="Name" sortable />
     <Column field="email" header="Email" sortable />
-  </FnxDataTable>
+  </FcxDataTable>
 </template>
 
 <script setup>
-import { FnxDataTable } from '@/components/datacomponents'
+import { FcxDataTable } from '@/components/datacomponents'
 import Column from 'primevue/column'
 
 const data = ref([
@@ -66,79 +66,79 @@ All PrimeVue DataTable props are supported. See [PrimeVue DataTable documentatio
 
 ```vue
 <!-- Small table -->
-<FnxDataTable :value="data" size="small">
+<FcxDataTable :value="data" size="small">
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 
 <!-- Medium table (default) -->
-<FnxDataTable :value="data" size="medium">
+<FcxDataTable :value="data" size="medium">
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 
 <!-- Large table -->
-<FnxDataTable :value="data" size="large">
+<FcxDataTable :value="data" size="large">
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 ```
 
 ## Theme Variants
 
 ```vue
 <!-- Default theme -->
-<FnxDataTable :value="data" theme="default">
+<FcxDataTable :value="data" theme="default">
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 
 <!-- Minimal theme (no borders, clean look) -->
-<FnxDataTable :value="data" theme="minimal">
+<FcxDataTable :value="data" theme="minimal">
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 
 <!-- Bordered theme (all cells bordered) -->
-<FnxDataTable :value="data" theme="bordered">
+<FcxDataTable :value="data" theme="bordered">
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 
 <!-- Compact theme (reduced padding) -->
-<FnxDataTable :value="data" theme="compact">
+<FcxDataTable :value="data" theme="compact">
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 ```
 
 ## Style Options
 
 ```vue
 <!-- Striped rows -->
-<FnxDataTable :value="data" :striped-rows="true">
+<FcxDataTable :value="data" :striped-rows="true">
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 
 <!-- Show gridlines -->
-<FnxDataTable :value="data" :show-gridlines="true">
+<FcxDataTable :value="data" :show-gridlines="true">
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 
 <!-- Rounded corners and raised shadow -->
-<FnxDataTable :value="data" :rounded="true" :raised="true">
+<FcxDataTable :value="data" :rounded="true" :raised="true">
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 ```
 
 ## Selection
 
 ```vue
 <!-- Single selection -->
-<FnxDataTable 
+<FcxDataTable 
   :value="data" 
   v-model:selection="selectedRow"
   selection-mode="single"
   data-key="id"
 >
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 
 <!-- Multiple selection -->
-<FnxDataTable 
+<FcxDataTable 
   :value="data" 
   v-model:selection="selectedRows"
   selection-mode="multiple"
@@ -146,13 +146,13 @@ All PrimeVue DataTable props are supported. See [PrimeVue DataTable documentatio
 >
   <Column selection-mode="multiple" header-style="width: 3rem" />
   <!-- other columns -->
-</FnxDataTable>
+</FcxDataTable>
 ```
 
 ## Pagination
 
 ```vue
-<FnxDataTable 
+<FcxDataTable 
   :value="data" 
   :paginator="true"
   :rows="10"
@@ -161,7 +161,7 @@ All PrimeVue DataTable props are supported. See [PrimeVue DataTable documentatio
   current-page-report-template="Showing {first} to {last} of {totalRecords} entries"
 >
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 ```
 
 ## Filtering
@@ -174,13 +174,13 @@ All PrimeVue DataTable props are supported. See [PrimeVue DataTable documentatio
       type="text" 
       placeholder="Search..."
     />
-    <FnxDataTable 
+    <FcxDataTable 
       :value="data" 
       :global-filter-fields="['name', 'email', 'role']"
       :filters="{ global: { value: globalFilter, matchMode: 'contains' } }"
     >
       <!-- columns -->
-    </FnxDataTable>
+    </FcxDataTable>
   </div>
 </template>
 
@@ -192,25 +192,25 @@ const globalFilter = ref('')
 ## Loading State
 
 ```vue
-<FnxDataTable 
+<FcxDataTable 
   :value="data" 
   :loading="isLoading"
   loading-message="Loading data..."
 >
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 ```
 
 ## Empty State
 
 ```vue
-<FnxDataTable 
+<FcxDataTable 
   :value="[]" 
   empty-message="No records found"
   empty-icon="fas fa-inbox"
 >
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 ```
 
 ## Events
@@ -218,7 +218,7 @@ const globalFilter = ref('')
 All PrimeVue DataTable events are supported:
 
 ```vue
-<FnxDataTable 
+<FcxDataTable 
   :value="data"
   @row-select="onRowSelect"
   @row-unselect="onRowUnselect"
@@ -229,16 +229,16 @@ All PrimeVue DataTable events are supported:
   @filter="onFilter"
 >
   <!-- columns -->
-</FnxDataTable>
+</FcxDataTable>
 ```
 
 ## Exposed Methods
 
 ```vue
 <template>
-  <FnxDataTable ref="dataTableRef" :value="data">
+  <FcxDataTable ref="dataTableRef" :value="data">
     <!-- columns -->
-  </FnxDataTable>
+  </FcxDataTable>
 </template>
 
 <script setup>
@@ -266,7 +266,7 @@ const resetTable = () => {
 All PrimeVue DataTable slots are supported and forwarded:
 
 ```vue
-<FnxDataTable :value="data">
+<FcxDataTable :value="data">
   <Column field="name" header="Name" />
   <Column field="status" header="Status">
     <template #body="{ data }">
@@ -283,7 +283,7 @@ All PrimeVue DataTable slots are supported and forwarded:
       <p>No matching records found</p>
     </div>
   </template>
-</FnxDataTable>
+</FcxDataTable>
 ```
 
 ## Styling
@@ -293,8 +293,8 @@ The component uses CSS custom properties for theming and automatically adapts to
 ```scss
 // Custom styling
 .my-datatable {
-  --fnx-datatable-header-background: #f8f9fa;
-  --fnx-datatable-row-hover-background: #e3f2fd;
+  --fcx-datatable-header-background: #f8f9fa;
+  --fcx-datatable-row-hover-background: #e3f2fd;
 }
 ```
 

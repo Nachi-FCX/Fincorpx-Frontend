@@ -1,7 +1,7 @@
 <template>
   <div class="dialog-demo">
     <div class="demo-header">
-      <h1>FnxDialog Component Demo</h1>
+      <h1>FcxDialog Component Demo</h1>
       <p>Comprehensive dialog component based on PrimeVue Dialog API</p>
     </div>
 
@@ -11,7 +11,7 @@
         <button @click="basicDialog = true" class="demo-button">Show Basic Dialog</button>
       </div>
       
-      <FnxDialog
+      <FcxDialog
         v-model:visible="basicDialog"
         header="Basic Dialog"
         :style="{ width: '450px' }"
@@ -23,7 +23,7 @@
           <button @click="basicDialog = false" class="demo-button demo-button--secondary">Cancel</button>
           <button @click="basicDialog = false" class="demo-button demo-button--primary">OK</button>
         </template>
-      </FnxDialog>
+      </FcxDialog>
     </div>
 
     <div class="demo-section">
@@ -35,14 +35,14 @@
         <button @click="showSizeDialog('fullscreen')" class="demo-button">Fullscreen</button>
       </div>
       
-      <FnxDialog
+      <FcxDialog
         v-model:visible="sizeDialog.visible"
         :header="`${sizeDialog.size} Dialog`"
         :size="sizeDialog.size"
       >
         <p>This is a {{ sizeDialog.size }} dialog.</p>
         <p>Different sizes provide different default widths and behaviors.</p>
-      </FnxDialog>
+      </FcxDialog>
     </div>
 
     <div class="demo-section">
@@ -57,14 +57,14 @@
         <button @click="showPositionDialog('topright')" class="demo-button">Top Right</button>
       </div>
       
-      <FnxDialog
+      <FcxDialog
         v-model:visible="positionDialog.visible"
         :header="`${positionDialog.position} Position`"
         :position="positionDialog.position"
         :style="{ width: '400px' }"
       >
         <p>This dialog is positioned at {{ positionDialog.position }}.</p>
-      </FnxDialog>
+      </FcxDialog>
     </div>
 
     <div class="demo-section">
@@ -77,7 +77,7 @@
       </div>
       
       <!-- Draggable Dialog -->
-      <FnxDialog
+      <FcxDialog
         v-model:visible="draggableDialog"
         header="Draggable Dialog"
         :draggable="true"
@@ -85,10 +85,10 @@
       >
         <p>This dialog can be dragged around by clicking and dragging the header.</p>
         <p>Try dragging it to different positions on the screen.</p>
-      </FnxDialog>
+      </FcxDialog>
 
       <!-- Resizable Dialog -->
-      <FnxDialog
+      <FcxDialog
         v-model:visible="resizableDialog"
         header="Resizable Dialog"
         :resizable="true"
@@ -96,10 +96,10 @@
       >
         <p>This dialog can be resized by dragging the resize handles on the edges and corners.</p>
         <p>Try resizing it to see the resize functionality in action.</p>
-      </FnxDialog>
+      </FcxDialog>
 
       <!-- Maximizable Dialog -->
-      <FnxDialog
+      <FcxDialog
         v-model:visible="maximizableDialog"
         header="Maximizable Dialog"
         :maximizable="true"
@@ -107,10 +107,10 @@
       >
         <p>This dialog has a maximize button in the header.</p>
         <p>Click the maximize button to toggle between normal and fullscreen modes.</p>
-      </FnxDialog>
+      </FcxDialog>
 
       <!-- All Features Dialog -->
-      <FnxDialog
+      <FcxDialog
         v-model:visible="interactiveDialog"
         header="Interactive Dialog"
         :draggable="true"
@@ -125,7 +125,7 @@
           <li><strong>Maximizable:</strong> Click maximize button to fullscreen</li>
         </ul>
         <p>Try all the different interactions!</p>
-      </FnxDialog>
+      </FcxDialog>
     </div>
 
     <div class="demo-section">
@@ -136,7 +136,7 @@
         <button @click="showThemeDialog('bordered')" class="demo-button">Bordered</button>
       </div>
       
-      <FnxDialog
+      <FcxDialog
         v-model:visible="themeDialog.visible"
         :header="`${themeDialog.theme} Theme`"
         :theme="themeDialog.theme"
@@ -144,7 +144,7 @@
       >
         <p>This dialog uses the {{ themeDialog.theme }} theme variant.</p>
         <p>Different themes provide different visual styles and borders.</p>
-      </FnxDialog>
+      </FcxDialog>
     </div>
 
     <div class="demo-section">
@@ -153,7 +153,7 @@
         <button @click="styledDialog = true" class="demo-button">Custom Styled</button>
       </div>
       
-      <FnxDialog
+      <FcxDialog
         v-model:visible="styledDialog"
         header="Custom Styled Dialog"
         :rounded="true"
@@ -171,7 +171,7 @@
         <template #footer>
           <button @click="styledDialog = false" class="demo-button demo-button--danger">Close</button>
         </template>
-      </FnxDialog>
+      </FcxDialog>
     </div>
 
     <div class="demo-section">
@@ -180,7 +180,7 @@
         <button @click="nonModalDialog = true" class="demo-button">Show Non-Modal</button>
       </div>
       
-      <FnxDialog
+      <FcxDialog
         v-model:visible="nonModalDialog"
         header="Non-Modal Dialog"
         :modal="false"
@@ -190,14 +190,14 @@
         <p>This is a non-modal dialog.</p>
         <p>You can interact with the background content while this dialog is open.</p>
         <p>It doesn't block the page or show a backdrop.</p>
-      </FnxDialog>
+      </FcxDialog>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FnxDialog } from '@/components/datacomponents'
+import { FcxDialog } from '@/components/datacomponents'
 import type { DialogPosition, DialogSize, DialogTheme } from '@/components/datacomponents'
 
 // Basic dialog
@@ -362,17 +362,17 @@ const nonModalDialog = ref(false)
 
 // Custom dialog styling
 :deep(.custom-dialog) {
-  .fnx-dialog-header {
+  fcx-dialog-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     border-bottom-color: rgba(255, 255, 255, 0.2);
   }
   
-  .fnx-dialog-title {
+  fcx-dialog-title {
     color: white;
   }
   
-  .fnx-dialog-header-icon {
+  fcx-dialog-header-icon {
     color: rgba(255, 255, 255, 0.8);
     
     &:hover {

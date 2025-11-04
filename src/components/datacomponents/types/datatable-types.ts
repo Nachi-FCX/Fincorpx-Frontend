@@ -365,8 +365,8 @@ export interface DataTableExpose {
   restoreState: (state: DataTableState) => void
 }
 
-// FnxDataTable specific props interface
-export interface FnxDataTableProps {
+// FcxDataTable specific props interface
+export interface FcxDataTableProps {
   /** Table data */
   value?: any[]
   /** Data key field */
@@ -508,7 +508,7 @@ export interface FnxDataTableProps {
 }
 
 // Filter event interface
-export interface FnxDataTableFilterEvent {
+export interface FcxDataTableFilterEvent {
   /** Original event */
   originalEvent?: Event
   /** Filter values */
@@ -654,5 +654,5 @@ export interface DataTableCompleteState {
 }
 
 // Legacy aliases for backward compatibility
-export type MOPDataTableProps = FnxDataTableProps
-export type MOPDataTableFilterEvent = FnxDataTableFilterEvent
+export type MOPDataTableProps = FcxDataTableProps
+export type MOPDataTableFilterEvent = FcxDataTableFilterEvent

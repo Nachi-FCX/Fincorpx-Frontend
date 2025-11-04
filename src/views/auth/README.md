@@ -316,7 +316,7 @@ await authStore.verifyOtp({
 
 ### With Your Existing System
 - **State Components**: Uses your StateWrapper, LoadingSpinner, etc.
-- **Form Components**: Integrates with your FnxInputtext, FnxPassword, etc.
+- **Form Components**: Integrates with your FcxInputtext, FcxPassword, etc.
 - **Routing**: Works with Vue Router and route guards
 - **Styling**: Follows your SCSS architecture and design system
 

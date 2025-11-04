@@ -3,8 +3,8 @@
     <div class="auth-container">
       <div class="brand-header">
         <router-link to="/" class="brand-logo">
-          <!-- <img src="@/assets/img/mainasset/fnxlogo.png" alt="FinCorpX" /> -->
-          <img src="@/assets/img/mainasset/fnxname.svg" alt="FinCorpX" class="brand-name" />
+          <!-- <img src="@/assets/img/mainasset/fcxlogo.png" alt="FinCorpX" /> -->
+          <img src="@/assets/img/mainasset/fcxname.svg" alt="FinCorpX" class="brand-name" />
         </router-link>
       </div>
       
@@ -23,11 +23,24 @@
 </template>
 
 <script setup lang="ts">
+import { onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/authStore'
+import { useTheme } from '@/composables/useTheme'
 
 const authStore = useAuthStore()
 const router = useRouter()
+const { forceTheme } = useTheme()
+
+// Force light theme when this component mounts
+onMounted(() => {
+  forceTheme('light')
+})
+
+// Restore normal theme behavior when component unmounts
+onUnmounted(() => {
+  forceTheme(null)
+})
 
 // Methods
 const handleRetry = () => {
@@ -137,16 +150,11 @@ const handleSuccessAction = () => {
   }
 }
 
-// Dark mode support
-@media (prefers-color-scheme: dark) {
-  .auth-layout-centered {
-   // background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-
-    .auth-container {
-      background: #1e293b;
-      border-color: rgba(255, 255, 255, 0.1);
-    }
-  }
+// Force light theme for authentication pages - no automatic dark mode
+.auth-layout-centered .auth-container {
+  background: white !important;
+  color: #1a1a1a !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
 }
 
 // High contrast mode

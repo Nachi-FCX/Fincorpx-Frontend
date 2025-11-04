@@ -1,6 +1,6 @@
 // Button Components Export
-export { default as FnxButton } from './FnxButton.vue'
-export { default as FnxIconButton } from './FnxIconButton.vue'
+export { default as FcxButton } from './FcxButton.vue'
+export { default as FcxIconButton } from './FcxIconButton.vue'
 
 // Button Types Export
 export type {

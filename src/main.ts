@@ -21,10 +21,10 @@ import i18n from './locales'
 // Custom imports
 import App from './App.vue'
 import router from './router'
-import FnxFormPlugin from './plugins/fnx-form'
-import FnxButtonPlugin from './plugins/fnx-button'
-import FnxStatePlugin from './plugins/fnx-state'
-import FnxDataPlugin from './plugins/fnx-data'
+import FcxFormPlugin from './plugins/fcx-form'
+import FcxButtonPlugin from './plugins/fcx-button'
+import FcxStatePlugin from './plugins/fcx-state'
+import FcxDataPlugin from './plugins/fcx-data'
 
 const app = createApp(App)
 
@@ -85,10 +85,10 @@ app.use(PrimeVue, {
 })
 
 // Install custom components
-app.use(FnxFormPlugin)
-app.use(FnxButtonPlugin)
-app.use(FnxStatePlugin)
-app.use(FnxDataPlugin)
+app.use(FcxFormPlugin)
+app.use(FcxButtonPlugin)
+app.use(FcxStatePlugin)
+app.use(FcxDataPlugin)
 
 // Initialize systems before mounting
 import { getSavedLocale } from './locales'

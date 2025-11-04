@@ -26,7 +26,7 @@
 
       <!-- OTP Input -->
       <div class="otp-inputs">
-        <FnxOtp
+        <FcxOtp
           v-model="otpValue"
           name="company-otp"
           :length="4"
@@ -69,7 +69,7 @@
 
       <!-- Action Buttons -->
       <div class="form-actions">
-        <FnxButton
+        <FcxButton
           type="button"
           @click="$emit('back')"
           severity="secondary"
@@ -79,9 +79,9 @@
           :disabled="isLoading"
         >
           Back
-        </FnxButton>
+        </FcxButton>
         
-        <FnxButton
+        <FcxButton
           type="button"
           @click="handleVerify"
           severity="success"
@@ -92,7 +92,7 @@
           :disabled="isLoading || !isOtpComplete"
         >
           Verify OTP
-        </FnxButton>
+        </FcxButton>
       </div>
     </div>
   </div>
@@ -148,7 +148,7 @@ const resendButtonText = computed(() => {
   return 'Resend OTP'
 })
 
-// Methods for FnxOtp integration
+// Methods for FcxOtp integration
 const handleOtpInput = (event: Event) => {
   // Handle OTP input changes
   // The v-model will automatically update otpValue

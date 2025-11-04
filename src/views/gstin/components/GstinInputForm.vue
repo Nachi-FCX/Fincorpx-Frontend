@@ -17,8 +17,25 @@
 
     <!-- Form Content -->
     <form @submit.prevent="handleSubmit" class="form-content">
+      <!-- Validation Summary -->
+      <div v-if="hasErrors" class="validation-summary">
+        <div class="validation-icon">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
+          </svg>
+        </div>
+        <div class="validation-content">
+          <h4>Please fix the following errors:</h4>
+          <ul>
+            <li v-for="(error, field) in errors" :key="field">
+              {{ field === 'username' ? 'GST Username' : field === 'gstin' ? 'GSTIN' : field }}: {{ error }}
+            </li>
+          </ul>
+        </div>
+      </div>
+
       <!-- GST Username Field -->
-      <FnxInputtext
+      <FcxInputtext
         name="username"
         label="GST Username"
         v-model="formData.username"
@@ -28,11 +45,12 @@
         :autofocus="true"
         :max-length="50"
         :error="errors.username"
+        help="Enter your registered GST username"
         @input="() => clearFieldError('username')"
       />
 
       <!-- GSTIN Field -->
-      <FnxInputtext
+      <FcxInputtext
         name="gstin"
         label="GSTIN"
         v-model="formData.gstin"
@@ -42,21 +60,37 @@
         :max-length="15"
         @input="handleGstinInput"
         :error="errors.gstin"
+        help="15-digit Goods and Services Tax Identification Number"
       />
 
       <!-- Submit Button -->
       <div class="form-actions">
-        <FnxButton
+        <FcxButton
           type="submit"
-          :disabled="isLoading"
+          :disabled="isLoading || hasErrors"
           :loading="isLoading"
           severity="success"
           variant="filled"
           size="large"
           class="submit-button"
         >
-          Add
-        </FnxButton>
+          {{ isLoading ? 'Validating...' : 'Add GSTIN' }}
+        </FcxButton>
+        
+        <!-- Form status indicator -->
+        <div v-if="hasErrors" class="form-status error">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
+          </svg>
+          Please fix the errors above
+        </div>
+        
+        <div v-else-if="Object.keys(formData).every(key => formData[key as keyof typeof formData])" class="form-status ready">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+          Ready to submit
+        </div>
       </div>
     </form>
   </div>
@@ -94,6 +128,9 @@ const formData = ref<GstinInputData>({
 // Form errors
 const errors = ref<Record<string, string>>({})
 
+// Computed properties
+const hasErrors = computed(() => Object.keys(errors.value).length > 0)
+
 const validateAllFields = () => {
   const validation = validateGstinInputForm(formData.value)
   errors.value = { ...validation.errors }
@@ -128,9 +165,23 @@ const handleGstinInput = (event: Event) => {
 }
 
 const handleSubmit = () => {
+  // Clear any previous errors
+  errors.value = {}
+  
   const isValid = validateAllFields()
   
   if (isValid) {
+    // Double-check that required fields are not empty before submitting
+    if (!formData.value.username || formData.value.username.trim() === '') {
+      errors.value.username = 'This field is required'
+      return
+    }
+    
+    if (!formData.value.gstin || formData.value.gstin.trim() === '') {
+      errors.value.gstin = 'This field is required'
+      return
+    }
+    
     emit('submit', { ...formData.value })
   } else {
     // Focus on the first field with an error for better UX
@@ -213,6 +264,50 @@ watch(() => props.isLoading, (newLoading) => {
   gap: 20px;
 }
 
+.validation-summary {
+  display: flex;
+  gap: 12px;
+  padding: 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.validation-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: #ef4444;
+}
+
+.validation-content {
+  flex: 1;
+  
+  h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #dc2626;
+  }
+  
+  ul {
+    margin: 0;
+    padding-left: 16px;
+    
+    li {
+      font-size: 13px;
+      color: #991b1b;
+      line-height: 1.4;
+      margin-bottom: 4px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
 .form-actions {
   margin-top: 8px;
 }
@@ -225,6 +320,42 @@ watch(() => props.isLoading, (newLoading) => {
     background: #059669 !important;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+.form-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  
+  &.error {
+    color: #dc2626;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+  }
+  
+  &.ready {
+    color: #059669;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
   }
 }
 

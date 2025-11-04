@@ -15,20 +15,20 @@ The theming system is built on CSS custom properties that are dynamically genera
 ```css
 :root {
   /* Light theme (default) */
-  --fnx-primary-500: #3b82f6;
-  --fnx-background: #ffffff;
-  --fnx-surface: #ffffff;
-  --fnx-text-primary: #111827;
-  --fnx-border-normal: #e5e7eb;
+  --fcx-primary-500: #3b82f6;
+  --fcx-background: #ffffff;
+  --fcx-surface: #ffffff;
+  --fcx-text-primary: #111827;
+  --fcx-border-normal: #e5e7eb;
 }
 
 :root[data-theme="dark"] {
   /* Dark theme */
-  --fnx-primary-500: #60a5fa;
-  --fnx-background: #0f172a;
-  --fnx-surface: #1e293b;
-  --fnx-text-primary: #f8fafc;
-  --fnx-border-normal: #475569;
+  --fcx-primary-500: #60a5fa;
+  --fcx-background: #0f172a;
+  --fcx-surface: #1e293b;
+  --fcx-text-primary: #f8fafc;
+  --fcx-border-normal: #475569;
 }
 ```
 
@@ -149,9 +149,9 @@ const { theme, isDark, toggleTheme } = useTheme()
 
 <style scoped>
 .themed-component {
-  background-color: var(--fnx-surface);
-  color: var(--fnx-text-primary);
-  border: 1px solid var(--fnx-border-normal);
+  background-color: var(--fcx-surface);
+  color: var(--fcx-text-primary);
+  border: 1px solid var(--fcx-border-normal);
 }
 </style>
 ```
@@ -239,17 +239,17 @@ The `theme-colors` mixin generates CSS custom properties:
   $theme-map: map.get($theme-colors, $theme-name);
   
   @each $key, $value in $theme-map {
-    --fnx-#{$key}: #{$value};
+    --fcx-#{$key}: #{$value};
   }
   
   // Add shadows based on theme
   @if $theme-name == 'dark' {
     @each $key, $value in $dark-shadows {
-      --fnx-shadow-#{$key}: #{$value};
+      --fcx-shadow-#{$key}: #{$value};
     }
   } @else {
     @each $key, $value in $shadows {
-      --fnx-shadow-#{$key}: #{$value};
+      --fcx-shadow-#{$key}: #{$value};
     }
   }
 }
@@ -408,15 +408,15 @@ const { isDark, toggleTheme } = useTheme()
 .theme-toggle {
   padding: 0.5rem;
   border: none;
-  background: var(--fnx-surface);
-  color: var(--fnx-text-primary);
+  background: var(--fcx-surface);
+  color: var(--fcx-text-primary);
   border-radius: 0.375rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .theme-toggle:hover {
-  background: var(--fnx-surface-hover);
+  background: var(--fcx-surface-hover);
 }
 
 .sun-icon,
@@ -478,10 +478,10 @@ currentTheme.value = savedTheme || 'system'
 
 .theme-select {
   padding: 0.25rem 0.5rem;
-  border: 1px solid var(--fnx-border-normal);
+  border: 1px solid var(--fcx-border-normal);
   border-radius: 0.25rem;
-  background: var(--fnx-surface);
-  color: var(--fnx-text-primary);
+  background: var(--fcx-surface);
+  color: var(--fcx-text-primary);
 }
 </style>
 ```
@@ -529,12 +529,12 @@ Add a script in `index.html` to prevent theme flash:
 
 ```scss
 // Good
-color: var(--fnx-text-primary);
-background: var(--fnx-surface);
+color: var(--fcx-text-primary);
+background: var(--fcx-surface);
 
 // Avoid
-color: var(--fnx-gray-900);
-background: var(--fnx-white);
+color: var(--fcx-gray-900);
+background: var(--fcx-white);
 ```
 
 ### 2. Test Both Themes
@@ -590,7 +590,7 @@ console.log(document.documentElement.getAttribute('data-theme'))
 
 // List all CSS custom properties
 const styles = getComputedStyle(document.documentElement)
-const customProps = Array.from(styles).filter(prop => prop.startsWith('--fnx-'))
+const customProps = Array.from(styles).filter(prop => prop.startsWith('--fcx-'))
 console.log(customProps)
 ```
 

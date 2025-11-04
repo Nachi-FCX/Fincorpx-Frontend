@@ -1,7 +1,7 @@
 <template>
   <div class="otp-demo">
     <div class="demo-header">
-      <h1>FnxOtp Component Demo</h1>
+      <h1>FcxOtp Component Demo</h1>
       <p>OTP input component based on PrimeVue InputOtp with enhanced features</p>
     </div>
 
@@ -11,7 +11,7 @@
         <p>Enter a 6-digit OTP code:</p>
       </div>
       
-      <FnxOtp
+      <FcxOtp
         v-model="basicOtp"
         name="basic-otp"
         label="Verification Code"
@@ -30,7 +30,7 @@
       <div class="demo-grid">
         <div class="demo-item">
           <h3>4-Digit OTP</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="fourDigitOtp"
             name="four-digit-otp"
             label="4-Digit Code"
@@ -42,7 +42,7 @@
         
         <div class="demo-item">
           <h3>8-Digit OTP</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="eightDigitOtp"
             name="eight-digit-otp"
             label="8-Digit Code"
@@ -59,7 +59,7 @@
       <div class="demo-grid">
         <div class="demo-item">
           <h3>Small</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="smallOtp"
             name="small-otp"
             label="Small OTP"
@@ -70,7 +70,7 @@
         
         <div class="demo-item">
           <h3>Medium (Default)</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="mediumOtp"
             name="medium-otp"
             label="Medium OTP"
@@ -81,7 +81,7 @@
         
         <div class="demo-item">
           <h3>Large</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="largeOtp"
             name="large-otp"
             label="Large OTP"
@@ -98,7 +98,7 @@
         <p>OTP input with masked characters (dots instead of numbers):</p>
       </div>
       
-      <FnxOtp
+      <FcxOtp
         v-model="maskedOtp"
         name="masked-otp"
         label="Secure Code"
@@ -117,7 +117,7 @@
       <div class="demo-grid">
         <div class="demo-item">
           <h3>Default</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="defaultVariantOtp"
             name="default-variant-otp"
             label="Default Style"
@@ -128,7 +128,7 @@
         
         <div class="demo-item">
           <h3>Filled</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="filledVariantOtp"
             name="filled-variant-otp"
             label="Filled Style"
@@ -139,7 +139,7 @@
         
         <div class="demo-item">
           <h3>Outlined</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="outlinedVariantOtp"
             name="outlined-variant-otp"
             label="Outlined Style"
@@ -156,7 +156,7 @@
         <p>OTP with custom separator between inputs:</p>
       </div>
       
-      <FnxOtp
+      <FcxOtp
         v-model="separatorOtp"
         name="separator-otp"
         label="Code with Separator"
@@ -176,7 +176,7 @@
         <p>OTP that auto-submits after completion with countdown:</p>
       </div>
       
-      <FnxOtp
+      <FcxOtp
         v-model="autoSubmitOtp"
         name="auto-submit-otp"
         label="Auto-Submit OTP"
@@ -199,7 +199,7 @@
       <div class="demo-grid">
         <div class="demo-item">
           <h3>Required Field</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="requiredOtp"
             name="required-otp"
             label="Required OTP"
@@ -211,7 +211,7 @@
         
         <div class="demo-item">
           <h3>With Error</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="errorOtp"
             name="error-otp"
             label="Invalid OTP"
@@ -222,7 +222,7 @@
         
         <div class="demo-item">
           <h3>Disabled</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="disabledOtp"
             name="disabled-otp"
             label="Disabled OTP"
@@ -239,7 +239,7 @@
       <div class="demo-grid">
         <div class="demo-item">
           <h3>Auto-Focus</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="autoFocusOtp"
             name="auto-focus-otp"
             label="Auto-Focus OTP"
@@ -251,7 +251,7 @@
         
         <div class="demo-item">
           <h3>Loading State</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="loadingOtp"
             name="loading-otp"
             label="Loading OTP"
@@ -266,7 +266,7 @@
         
         <div class="demo-item">
           <h3>Paste Disabled</h3>
-          <FnxOtp
+          <FcxOtp
             v-model="noPasteOtp"
             name="no-paste-otp"
             label="No Paste OTP"
@@ -284,7 +284,7 @@
         <p>OTP with comprehensive event handling:</p>
       </div>
       
-      <FnxOtp
+      <FcxOtp
         v-model="eventOtp"
         name="event-otp"
         label="Event Demo OTP"
@@ -314,7 +314,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { FnxOtp } from '@/components/formcomponents'
+import { FcxOtp } from '@/components/formcomponents'
 
 // Basic OTP
 const basicOtp = ref('')

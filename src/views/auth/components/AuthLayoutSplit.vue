@@ -92,11 +92,12 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import AuthCarousel from './AuthCarousel.vue'
 import { StateWrapper } from '@/components/statecomponents'
 import { useAuthStore } from '../stores/authStore'
+import { useTheme } from '@/composables/useTheme'
 import { authCarouselSlides, platformRatings } from '../data/carousel-data'
 import type { CarouselSlide, PlatformRating } from '../types/carousel-types'
 
@@ -112,6 +113,17 @@ const props = withDefaults(defineProps<Props>(), {
 
 const authStore = useAuthStore()
 const router = useRouter()
+const { forceTheme } = useTheme()
+
+// Force light theme when this component mounts
+onMounted(() => {
+  forceTheme('light')
+})
+
+// Restore normal theme behavior when component unmounts
+onUnmounted(() => {
+  forceTheme(null)
+})
 
 // Computed properties
 const carouselSlides = computed(() => props.slides)
@@ -466,21 +478,21 @@ const handleSuccessAction = () => {
   }
 }
 
-// Dark mode support
-@media (prefers-color-scheme: dark) {
-  .auth-layout-split {
-    background: #0f172a;
+// Force light theme for authentication pages - no automatic dark mode
+.auth-layout-split {
+  background: white !important;
 
-    .auth-right-panel {
-      background: #1e293b;
+  .auth-right-panel {
+    background: white !important;
+    color: #1a1a1a !important;
 
-      @media (max-width: 1024px) {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    @media (max-width: 1024px) {
+      background: white !important;
 
-        .auth-form-container {
-          background: #1e293b;
-          border-color: rgba(255, 255, 255, 0.1);
-        }
+      .auth-form-container {
+        background: white !important;
+        border-color: rgba(0, 0, 0, 0.1) !important;
+        color: #1a1a1a !important;
       }
     }
   }

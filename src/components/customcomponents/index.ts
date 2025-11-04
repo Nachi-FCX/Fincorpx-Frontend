@@ -1,7 +1,7 @@
 // Custom Components Index
 export { default as HeaderVersionDropdown } from './HeaderVersionDropdown.vue'
 export { default as ThemeSwitcher } from './ThemeSwitcher.vue'
-export { default as FnxConfirmDialog } from './FnxConfirmDialog.vue'
+export { default as FcxConfirmDialog } from './FcxConfirmDialog.vue'
 
 // Types
 export interface VersionOption {

@@ -8,7 +8,7 @@
   
   <div class="gstin-data-table">
     <!-- Data Table -->
-    <FnxDataTable
+    <FcxDataTable
       :value="filteredAccounts"
       :columns="tableColumns"
       :loading="isLoading"
@@ -102,7 +102,7 @@
       <!-- Actions Column -->
       <template #body-actions="{ data }">
         <div class="gstin-data-table__actions">
-          <FnxButton
+          <FcxButton
             icon="pi pi-ellipsis-v"
             severity="secondary"
             text
@@ -120,13 +120,13 @@
           />
         </div>
       </template>
-    </FnxDataTable>
+    </FcxDataTable>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { FnxDataTable } from '@/components/datacomponents'
+import { FcxDataTable } from '@/components/datacomponents'
 import Menu from 'primevue/menu'
 import GstinCreation from '../views/GstinCreation.vue'
 import type { 
@@ -595,7 +595,7 @@ const handleRowClick = (event: any) => {
   // Navigate to account details or show details modal
 }
 
-// New FnxDataTable event handlers
+// New FcxDataTable event handlers
 const showGstinCreationDialog = ref(false)
 
 const handleAddGstin = () => {
@@ -863,8 +863,8 @@ defineExpose({
   }
 }
 
-// Actions placeholder styles in FnxDataTable
-:global(.fnx-datatable__actions-placeholder) {
+// Actions placeholder styles in FcxDataTable
+:global(fcx-datatable__actions-placeholder) {
   display: flex;
   align-items: center;
   justify-content: center;

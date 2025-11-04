@@ -9,7 +9,7 @@
     
     <form @submit.prevent="handleVerifyOtp" class="form-content">
       <!-- Editable Contact Info Field -->
-      <FnxInputtext
+      <FcxInputtext
         name="contactInfo"
         :label="getContactInfoLabel()"
         :model-value="editableContactInfo"
@@ -20,7 +20,7 @@
         class="form-group contact-info-field"
       />
       <!-- OTP Input Field -->
-      <FnxOtp
+      <FcxOtp
         name="otpCode"
         label="Enter verification code"
         :length="OTP_CONFIG.LENGTH"
@@ -40,7 +40,7 @@
           <i class="pi pi-clock"></i>
           <span>Resend code in {{ formatTime(otpVerification.resendCooldown) }}</span>
         </div>
-        <FnxButton
+        <FcxButton
           v-else
           type="button"
           label="Resend code"
@@ -55,7 +55,7 @@
       </div>
 
       <!-- Verify Button -->
-      <FnxButton
+      <FcxButton
         type="submit"
         :label="getSubmitButtonLabel()"
         severity="primary"
@@ -80,7 +80,7 @@
 
       <!-- Back to previous step -->
       <div class="auth-link">
-        <FnxButton
+        <FcxButton
           type="button"
           :label="getBackButtonLabel()"
           icon="pi pi-arrow-left"
@@ -99,9 +99,9 @@ import { ref, computed, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/authStore'
 import { OTP_CONFIG } from '../constants/auth-constants'
-import FnxOtp from '@/components/formcomponents/FnxOtp.vue'
-import FnxButton from '@/components/buttoncomponents/FnxButton.vue'
-import FnxInputtext from '@/components/formcomponents/FnxInputtext.vue'
+import FcxOtp from '@/components/formcomponents/FcxOtp.vue'
+import FcxButton from '@/components/buttoncomponents/FcxButton.vue'
+import FcxInputtext from '@/components/formcomponents/FcxInputtext.vue'
 
 const authStore = useAuthStore()
 const router = useRouter()
@@ -352,7 +352,7 @@ watch(() => authStore.authStep, (newStep) => {
   .contact-info-field {
     margin-bottom: 1.5rem;
     
-    :deep(.fnx-inputtext) {
+    :deep(fcx-inputtext) {
       font-weight: 500;
       
       &:focus {

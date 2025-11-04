@@ -40,7 +40,7 @@
 
       <!-- Action Button -->
       <div class="success-actions">
-        <FnxButton
+        <FcxButton
           type="button"
           @click="handleClose"
           severity="success"
@@ -49,7 +49,7 @@
           class="close-button"
         >
           Done
-        </FnxButton>
+        </FcxButton>
       </div>
     </div>
   </div>

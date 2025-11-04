@@ -18,7 +18,7 @@
     <!-- Form Content -->
     <form @submit.prevent="handleSubmit" class="form-content">
       <!-- GST Username Field -->
-      <FnxInputtext
+      <FcxInputtext
         name="username"
         label="GST Username"
         v-model="formData.username"
@@ -32,7 +32,7 @@
       />
 
       <!-- GSTIN Field -->
-      <FnxInputtext
+      <FcxInputtext
         name="gstin"
         label="GSTIN"
         v-model="formData.gstin"
@@ -45,7 +45,7 @@
       />
 
       <!-- State Code Field -->
-      <!-- <FnxInputtext
+      <!-- <FcxInputtext
         name="stateCode"
         label="State Code"
         v-model="formData.stateCode"
@@ -59,7 +59,7 @@
 
       <!-- Submit Button -->
       <div class="form-actions">
-        <FnxButton
+        <FcxButton
           type="submit"
           :disabled="isLoading"
           :loading="isLoading"
@@ -69,7 +69,7 @@
           class="submit-button"
         >
           Add
-        </FnxButton>
+        </FcxButton>
       </div>
     </form>
   </div>

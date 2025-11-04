@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-language-switcher" :class="{ collapsed: isCollapsed }">
-    <FnxDropdown
+    <FcxDropdown
       v-if="!isCollapsed"
       :model-value="currentLanguage.code"
       :options="languageOptions"
@@ -26,7 +26,7 @@
           <span class="language-code">{{ option.code.toUpperCase() }}</span>
         </div>
       </template>
-    </FnxDropdown>
+    </FcxDropdown>
 
     <!-- Collapsed state - show current language flag as button -->
     <button
@@ -164,7 +164,7 @@ const getLanguageByCode = (code: string): LanguageConfig | undefined => {
 
   // Custom dropdown styling for sidebar
   :deep(.language-dropdown) {
-    .fnx-dropdown {
+    fcx-dropdown {
       background: var(--language-switcher-bg);
       border: 1px solid var(--language-switcher-border);
       border-radius: 6px;
@@ -176,7 +176,7 @@ const getLanguageByCode = (code: string): LanguageConfig | undefined => {
       }
     }
 
-    .fnx-dropdown-panel {
+    fcx-dropdown-panel {
       border: 1px solid var(--language-menu-border);
       box-shadow: 0 4px 12px var(--language-menu-shadow);
     }

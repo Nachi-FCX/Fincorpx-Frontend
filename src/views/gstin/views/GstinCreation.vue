@@ -1,5 +1,5 @@
 <template>
-  <FnxDialog
+  <FcxDialog
     v-model:visible="dialogVisible"
     :modal="true"
     :closable="true"
@@ -61,10 +61,18 @@
             <path d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
           </svg>
         </div>
-        <h3 class="error-title">Something went wrong</h3>
+        <h3 class="error-title">Validation Error</h3>
         <p class="error-message">{{ gstinStore.error }}</p>
+        <div class="error-details">
+          <p>Please check the following:</p>
+          <ul>
+            <li>GST Username is required and must be valid</li>
+            <li>GSTIN must be exactly 15 characters</li>
+            <li>All fields must be filled correctly</li>
+          </ul>
+        </div>
         <div class="error-actions">
-          <FnxButton
+          <FcxButton
             type="button"
             @click="handleRetry"
             severity="primary"
@@ -72,8 +80,8 @@
             size="large"
           >
             Try Again
-          </FnxButton>
-          <FnxButton
+          </FcxButton>
+          <FcxButton
             type="button"
             @click="closeDialog"
             severity="secondary"
@@ -81,19 +89,20 @@
             size="large"
           >
             Cancel
-          </FnxButton>
+          </FcxButton>
         </div>
       </div>
     </div>
-  </FnxDialog>
+  </FcxDialog>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useGstinStore } from '../stores/gstinStore'
 import { DialogPhase, type GstinInputData } from '../types/gstin-accounts-types'
-import FnxButton from '@/components/buttoncomponents/FnxButton.vue'
-import FnxDialog from '@/components/datacomponents/FnxDialog.vue'
+import { validateGstinInputForm } from '../utils/gstin-validation'
+import FcxButton from '@/components/buttoncomponents/FcxButton.vue'
+import FcxDialog from '@/components/datacomponents/FcxDialog.vue'
 
 // Import sub-components
 import GstinInputForm from '../components/GstinInputForm.vue'
@@ -141,7 +150,7 @@ const loadingTitle = computed(() => {
   }
 })
 
-// Computed property for FnxDialog v-model
+// Computed property for FcxDialog v-model
 const dialogVisible = computed({
   get: () => props.visible,
   set: (value: boolean) => {
@@ -163,19 +172,32 @@ const closeDialog = () => {
 }
 
 const handleDialogHide = () => {
-  // Handle FnxDialog hide event
+  // Handle FcxDialog hide event
   emit('close')
 }
 
 
 const handleInputSubmit = async (data: GstinInputData) => {
-  // Store the input data directly (bypassing potential HMR issues)
-  gstinStore.inputData.username = data.username
-  gstinStore.inputData.gstin = data.gstin
-  gstinStore.inputData.stateCode = data.stateCode
-  
-  // Fetch GSTIN details
-  await gstinStore.fetchGstinDetails(data.gstin)
+  try {
+    // Validate input data before making API call
+    const validation = validateGstinInputForm(data)
+    if (!validation.isValid) {
+      console.error('Form validation failed:', validation.errors)
+      // Don't proceed with API call if validation fails
+      return
+    }
+
+    // Store the input data directly (bypassing potential HMR issues)
+    gstinStore.inputData.username = data.username
+    gstinStore.inputData.gstin = data.gstin
+    gstinStore.inputData.stateCode = data.stateCode
+    
+    // Fetch GSTIN details
+    await gstinStore.fetchGstinDetails(data.gstin)
+  } catch (error) {
+    console.error('Error in handleInputSubmit:', error)
+    // Let the store handle the error
+  }
 }
 
 const handleVerificationConfirm = async () => {
@@ -331,6 +353,37 @@ onUnmounted(() => {
   max-width: 300px;
 }
 
+.error-details {
+  margin-top: 16px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border-left: 4px solid #ef4444;
+  
+  p {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  ul {
+    margin: 0;
+    padding-left: 20px;
+    
+    li {
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.4;
+      margin-bottom: 4px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
 .error-actions {
   display: flex;
   gap: 12px;
@@ -371,6 +424,19 @@ onUnmounted(() => {
 
   .error-message {
     color: #d1d5db;
+  }
+
+  .error-details {
+    background: #374151;
+    border-left-color: #ef4444;
+    
+    p {
+      color: #f3f4f6;
+    }
+    
+    ul li {
+      color: #d1d5db;
+    }
   }
 
   .error-icon {

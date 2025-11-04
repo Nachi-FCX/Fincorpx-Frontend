@@ -1,8 +1,7 @@
 // Type declarations for dynamically imported modules
-declare module 'xlsx' {
-  export const read: any;
-  export const utils: any;
-  export const writeFile: any;
+declare module 'exceljs' {
+  const content: any;
+  export = content;
 }
 
 declare module 'jspdf' {

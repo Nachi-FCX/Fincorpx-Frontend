@@ -63,7 +63,7 @@
 
       <!-- Action Buttons -->
       <div class="form-actions">
-        <FnxButton
+        <FcxButton
           type="button"
           @click="$emit('back')"
           severity="secondary"
@@ -73,9 +73,9 @@
           :disabled="isLoading"
         >
           Back
-        </FnxButton>
+        </FcxButton>
         
-        <FnxButton
+        <FcxButton
           type="button"
           @click="handleConfirm"
           severity="success"
@@ -86,7 +86,7 @@
           :disabled="isLoading"
         >
           Confirm and Send OTP
-        </FnxButton>
+        </FcxButton>
       </div>
     </div>
   </div>

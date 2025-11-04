@@ -38,7 +38,7 @@
     <form @submit.prevent="handleSubmit" class="form-content">
       <!-- Step 1: Email/Mobile Input -->
       <template v-if="currentStep === 'init'">
-        <FnxInputtext
+        <FcxInputtext
           name="emailOrMobile"
           label="Email or Mobile"
           placeholder="Enter your email or mobile number"
@@ -48,7 +48,7 @@
           class="form-group"
         />
 
-        <FnxButton
+        <FcxButton
           type="submit"
           label="Send Verification Code"
           severity="primary"
@@ -63,7 +63,7 @@
       <!-- Step 2: OTP Verification -->
       <template v-else-if="currentStep === 'otp-verification'">
         <div class="form-group">
-          <FnxOtp
+          <FcxOtp
             name="otp"
             label="Enter verification code"
             :length="6"
@@ -96,7 +96,7 @@
           </p>
         </div>
 
-        <FnxButton
+        <FcxButton
           type="submit"
           label="Verify Code"
           severity="primary"
@@ -112,7 +112,7 @@
       <template v-else-if="currentStep === 'reset-password'">
         <div class="form-group">
           <span class="form-label">New Password</span>
-          <FnxPassword
+          <FcxPassword
             name="newPassword"
             placeholder="Enter your new password"
             autocomplete="new-password"
@@ -125,7 +125,7 @@
 
         <div class="form-group">
           <span class="form-label">Confirm Password</span>
-          <FnxPassword
+          <FcxPassword
             name="confirmPassword"
             placeholder="Confirm your new password"
             autocomplete="new-password"
@@ -140,7 +140,7 @@
           </small>
         </div>
 
-        <FnxButton
+        <FcxButton
           type="submit"
           label="Reset Password"
           severity="primary"
@@ -172,10 +172,10 @@ import type {
   ForgotPasswordResetData 
 } from '../types/auth-types'
 
-import FnxOtp from '@/components/formcomponents/FnxOtp.vue'
-import FnxButton from '@/components/buttoncomponents/FnxButton.vue'
-import FnxInputtext from '@/components/formcomponents/FnxInputtext.vue'
-import FnxPassword from '@/components/formcomponents/FnxPassword.vue'
+import FcxOtp from '@/components/formcomponents/FcxOtp.vue'
+import FcxButton from '@/components/buttoncomponents/FcxButton.vue'
+import FcxInputtext from '@/components/formcomponents/FcxInputtext.vue'
+import FcxPassword from '@/components/formcomponents/FcxPassword.vue'
 
 const authStore = useAuthStore()
 const router = useRouter()

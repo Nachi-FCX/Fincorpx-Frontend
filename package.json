@@ -27,6 +27,7 @@
     "@intlify/unplugin-vue-i18n": "^6.0.8",
     "@primeuix/themes": "^1.2.1",
     "axios": "^1.10.0",
+    "exceljs": "^4.4.0",
     "firebase": "^12.0.0",
     "jspdf": "^3.0.1",
     "jspdf-autotable": "^5.0.2",
@@ -36,8 +37,7 @@
     "vee-validate": "^4.13.2",
     "vue": "^3.5.17",
     "vue-i18n": "^9.14.5",
-    "vue-router": "^4.5.1",
-    "xlsx": "^0.18.5"
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",

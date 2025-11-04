@@ -333,7 +333,7 @@ $button-group-divider-width: 1px;
   border-radius: map.get($size-map, border-radius);
   min-width: map.get($size-map, min-width);
   
-  .fnx-button-icon {
+  fcx-button-icon {
     width: map.get($size-map, icon-size);
     height: map.get($size-map, icon-size);
   }
@@ -351,11 +351,11 @@ $button-group-divider-width: 1px;
   border: #{$button-spinner-border-width} solid transparent;
   border-top-color: $color;
   border-radius: 50%;
-  animation: fnx-button-spin 1s linear infinite;
+  animation: fcx-button-spin 1s linear infinite;
 }
 
 // Button loading animation
-@keyframes fnx-button-spin {
+@keyframes fcx-button-spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
@@ -368,7 +368,7 @@ $button-group-divider-width: 1px;
   padding: 0;
   border-radius: 50%;
   
-  &.fnx-icon-button--square {
+  &fcx-icon-button--square {
     border-radius: 6px;
   }
 }
@@ -456,55 +456,56 @@ $button-group-divider-width: 1px;
   // =============================================================================
   
   // Light theme (default)
-  --fnx-background: #ffffff;
-  --fnx-background-secondary: #f9fafb;
-  --fnx-background-tertiary: #f3f4f6;
-  --fnx-text-primary: #111827;
-  --fnx-text-secondary: #6b7280;
-  --fnx-text-tertiary: #9ca3af;
-  --fnx-text-inverse: #ffffff;
-  --fnx-border: #e5e7eb;
-  --fnx-border-hover: #d1d5db;
-  --fnx-border-focus: #3b82f6;
-  --fnx-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --fnx-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --fcx-background: #ffffff;
+  --fcx-background-secondary: #f9fafb;
+  --fcx-background-tertiary: #f3f4f6;
+  --fcx-text-primary: #111827;
+  --fcx-text-secondary: #6b7280;
+  --fcx-text-tertiary: #9ca3af;
+  --fcx-text-inverse: #ffffff;
+  --fcx-border: #e5e7eb;
+  --fcx-border-hover: #d1d5db;
+  --fcx-border-focus: #3b82f6;
+  --fcx-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --fcx-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   
   // Header variables (unified)
-  --header-bg: var(--fnx-background);
-  --header-border: var(--fnx-border);
-  --header-text: var(--fnx-text-primary);
-  --header-text-secondary: var(--fnx-text-secondary);
+  --header-bg: var(--fcx-background);
+  --header-border: var(--fcx-border);
+  --header-text: var(--fcx-text-primary);
+  --header-text-secondary: var(--fcx-text-secondary);
   --header-hover: rgba(243, 244, 246, 0.8);
-  --header-shadow: var(--fnx-shadow);
+  --header-shadow: var(--fcx-shadow);
   
   // Sidebar variables
-  --sidebar-bg: var(--fnx-background);
-  --sidebar-border: var(--fnx-border);
-  --sidebar-text: var(--fnx-text-primary);
-  --sidebar-text-secondary: var(--fnx-text-secondary);
+  --sidebar-bg: var(--fcx-background);
+  --sidebar-border: var(--fcx-border);
+  --sidebar-border-hover: var(--fcx-border-hover);
+  --sidebar-text: var(--fcx-text-primary);
+  --sidebar-text-secondary: var(--fcx-text-secondary);
   --sidebar-hover: rgba(243, 244, 246, 0.8);
   
   // Main content variables
-  --main-bg: var(--fnx-background);
-  --main-text: var(--fnx-text-primary);
-  --main-text-secondary: var(--fnx-text-secondary);
+  --main-bg: var(--fcx-background);
+  --main-text: var(--fcx-text-primary);
+  --main-text-secondary: var(--fcx-text-secondary);
 }
 
 // Dark theme overrides
 :root[data-theme="dark"] {
   // Dark theme colors
-  --fnx-background: #111827;
-  --fnx-background-secondary: #1f2937;
-  --fnx-background-tertiary: #374151;
-  --fnx-text-primary: #f9fafb;
-  --fnx-text-secondary: #d1d5db;
-  --fnx-text-tertiary: #9ca3af;
-  --fnx-text-inverse: #111827;
-  --fnx-border: #374151;
-  --fnx-border-hover: #4b5563;
-  --fnx-border-focus: #3b82f6;
-  --fnx-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
-  --fnx-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  --fcx-background: #111827;
+  --fcx-background-secondary: #1f2937;
+  --fcx-background-tertiary: #374151;
+  --fcx-text-primary: #f9fafb;
+  --fcx-text-secondary: #d1d5db;
+  --fcx-text-tertiary: #9ca3af;
+  --fcx-text-inverse: #111827;
+  --fcx-border: #374151;
+  --fcx-border-hover: #4b5563;
+  --fcx-border-focus: #3b82f6;
+  --fcx-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.4), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+  --fcx-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
   
   // Header variables (dark)
   --header-bg: #171717;
@@ -515,33 +516,34 @@ $button-group-divider-width: 1px;
   --header-shadow: rgba(0, 0, 0, 0.3);
   
   // Sidebar variables (dark)
-  --sidebar-bg: var(--fnx-background);
-  --sidebar-border: var(--fnx-border);
-  --sidebar-text: var(--fnx-text-primary);
-  --sidebar-text-secondary: var(--fnx-text-secondary);
+  --sidebar-bg: var(--fcx-background);
+  --sidebar-border: var(--fcx-border);
+  --sidebar-border-hover: var(--fcx-border-hover);
+  --sidebar-text: var(--fcx-text-primary);
+  --sidebar-text-secondary: var(--fcx-text-secondary);
   --sidebar-hover: rgba(45, 45, 45, 0.8);
   
   // Main content variables (dark)
   --main-bg: #212121;
   --main-text: #ececec;
-  --main-text-secondary: var(--fnx-text-secondary);
+  --main-text-secondary: var(--fcx-text-secondary);
 }
 
 // Light theme explicit overrides
 :root[data-theme="light"] {
   // Light theme colors (same as default)
-  --fnx-background: #ffffff;
-  --fnx-background-secondary: #f9fafb;
-  --fnx-background-tertiary: #f3f4f6;
-  --fnx-text-primary: #111827;
-  --fnx-text-secondary: #6b7280;
-  --fnx-text-tertiary: #9ca3af;
-  --fnx-text-inverse: #ffffff;
-  --fnx-border: #e5e7eb;
-  --fnx-border-hover: #d1d5db;
-  --fnx-border-focus: #3b82f6;
-  --fnx-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --fnx-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --fcx-background: #ffffff;
+  --fcx-background-secondary: #f9fafb;
+  --fcx-background-tertiary: #f3f4f6;
+  --fcx-text-primary: #111827;
+  --fcx-text-secondary: #6b7280;
+  --fcx-text-tertiary: #9ca3af;
+  --fcx-text-inverse: #ffffff;
+  --fcx-border: #e5e7eb;
+  --fcx-border-hover: #d1d5db;
+  --fcx-border-focus: #3b82f6;
+  --fcx-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --fcx-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   
   // Header variables (light)
   --header-bg: #ffffff;
@@ -551,17 +553,18 @@ $button-group-divider-width: 1px;
   --header-hover: rgba(243, 244, 246, 0.8);
   --header-shadow: rgba(0, 0, 0, 0.1);
   
-  // Sidebar variables (light)
-  --sidebar-bg: var(--fnx-background);
-  --sidebar-border: var(--fnx-border);
-  --sidebar-text: var(--fnx-text-primary);
-  --sidebar-text-secondary: var(--fnx-text-secondary);
+  // Sidebar variables (light explicit)
+  --sidebar-bg: var(--fcx-background);
+  --sidebar-border: var(--fcx-border);
+  --sidebar-border-hover: var(--fcx-border-hover);
+  --sidebar-text: var(--fcx-text-primary);
+  --sidebar-text-secondary: var(--fcx-text-secondary);
   --sidebar-hover: rgba(243, 244, 246, 0.8);
   
   // Main content variables (light)
   --main-bg: #ffffff;
   --main-text: #1f2937;
-  --main-text-secondary: var(--fnx-text-secondary);
+  --main-text-secondary: var(--fcx-text-secondary);
 }
 
 // =============================================================================

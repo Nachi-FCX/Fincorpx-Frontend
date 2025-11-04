@@ -8,7 +8,7 @@
     <form @submit.prevent="handleSignUp" class="form-content">
       
       <!-- Organization Fields -->
-      <FnxInputtext
+      <FcxInputtext
         name="name"
         label="Name"
         placeholder="Enter name"
@@ -20,7 +20,7 @@
         @blur="touched.name = true"
       />
 
-      <!-- <FnxInputtext
+      <!-- <FcxInputtext
         name="gstinNumber"
         label="GSTIN Number"
         placeholder="Enter GSTIN number (optional)"
@@ -41,9 +41,9 @@
             {{ getStatusText(fetchedGstinData.sts) }}
           </span>
         </template>
-      </FnxInputtext>
+      </FcxInputtext>
 
-      <FnxInputtext
+      <FcxInputtext
         name="companyName"
         label="Company Name"
         placeholder="Enter company name"
@@ -56,7 +56,7 @@
       /> -->
 
       <!-- Email Address -->
-      <FnxInputtext
+      <FcxInputtext
         name="email"
         label="Email Address"
         placeholder="Enter your email address"
@@ -69,7 +69,7 @@
       />
 
       <!-- Phone Number -->
-      <FnxInputtext
+      <FcxInputtext
         name="phoneNumber"
         label="Phone Number"
         placeholder="Enter your phone number"
@@ -82,7 +82,7 @@
       />
 
       <!-- Password -->
-      <FnxPassword
+      <FcxPassword
         name="password"
         label="Password"
         placeholder="Enter your password"
@@ -98,7 +98,7 @@
       <!-- <span v-if="touched.password && errors.password" class="error-message">{{ errors.password }}</span> -->
 
       <!-- Confirm Password -->
-      <FnxPassword
+      <FcxPassword
         name="confirmPassword"
         label="Confirm Password"
         placeholder="Confirm your password"
@@ -118,7 +118,7 @@
       </div>
 
       <!-- Terms and Conditions -->
-      <FnxCheckbox
+      <FcxCheckbox
         name="agreeToTerms"
         label="I agree to the Terms of Service and Privacy Policy"
         :binary="true"
@@ -130,7 +130,7 @@
       <!-- <span v-if="touched.agreeToTerms && errors.agreeToTerms" class="error-message">{{ errors.agreeToTerms }}</span> -->
 
       <!-- Submit Button -->
-      <FnxButton
+      <FcxButton
         type="submit"
         label="Create Account"
         severity="primary"

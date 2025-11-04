@@ -74,6 +74,15 @@ export const useGstinStore = defineStore('gstin', () => {
   // API Actions
   const fetchGstinDetails = async (gstin: string) => {
     try {
+      // Validate GSTIN before making API call
+      if (!gstin || gstin.trim() === '') {
+        throw new Error('GSTIN is required')
+      }
+      
+      if (gstin.length !== 15) {
+        throw new Error('GSTIN must be exactly 15 characters')
+      }
+
       setLoading(true, LOADING_MESSAGES.FETCHING_DATA)
       
       const response = await gstinAccountsService.fetchGstinDetailsForRegistration(gstin)

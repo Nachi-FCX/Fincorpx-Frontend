@@ -2,15 +2,19 @@ import { ref, computed, watch, onMounted } from 'vue'
 
 export type Theme = 'light' | 'dark' | 'system'
 
-const THEME_STORAGE_KEY = 'fnx-theme'
+const THEME_STORAGE_KEY = 'fcx-theme'
 
 // Reactive theme state
-const currentTheme = ref<Theme>('system')
+const currentTheme = ref<Theme>('light')
 const systemTheme = ref<'light' | 'dark'>('light')
+const forcedTheme = ref<'light' | 'dark' | null>(null)
 
 export function useTheme() {
-  // Computed actual theme (resolves 'system' to actual theme)
+  // Computed actual theme (resolves 'system' to actual theme, or uses forced theme)
   const resolvedTheme = computed(() => {
+    if (forcedTheme.value) {
+      return forcedTheme.value
+    }
     return currentTheme.value === 'system' ? systemTheme.value : currentTheme.value
   })
 
@@ -31,6 +35,18 @@ export function useTheme() {
     }
   }
 
+  // Force a specific theme (useful for auth pages)
+  const forceTheme = (theme: 'light' | 'dark' | null) => {
+    forcedTheme.value = theme
+    if (theme) {
+      applyTheme(theme)
+    } else {
+      // Restore normal theme behavior
+      const normalTheme = currentTheme.value === 'system' ? systemTheme.value : currentTheme.value
+      applyTheme(normalTheme)
+    }
+  }
+
   // Set theme and persist to localStorage
   const setTheme = (theme: Theme) => {
     currentTheme.value = theme
@@ -39,9 +55,11 @@ export function useTheme() {
       localStorage.setItem(THEME_STORAGE_KEY, theme)
     }
 
-    // Apply the resolved theme
-    const resolvedThemeValue = theme === 'system' ? systemTheme.value : theme
-    applyTheme(resolvedThemeValue)
+    // Only apply if no forced theme is active
+    if (!forcedTheme.value) {
+      const resolvedThemeValue = theme === 'system' ? systemTheme.value : theme
+      applyTheme(resolvedThemeValue)
+    }
   }
 
   // Get theme from localStorage
@@ -52,7 +70,7 @@ export function useTheme() {
         return stored as Theme
       }
     }
-    return 'system'
+    return 'light'
   }
 
   // Initialize theme system
@@ -76,7 +94,7 @@ export function useTheme() {
         systemTheme.value = e.matches ? 'dark' : 'light'
         
         // If current theme is 'system', apply the new system theme
-        if (currentTheme.value === 'system') {
+        if (currentTheme.value === 'system' && !forcedTheme.value) {
           applyTheme(systemTheme.value)
         }
       }
@@ -100,7 +118,9 @@ export function useTheme() {
     currentTheme: readonly(currentTheme),
     resolvedTheme: readonly(resolvedTheme),
     systemTheme: readonly(systemTheme),
+    forcedTheme: readonly(forcedTheme),
     setTheme,
+    forceTheme,
     initializeTheme,
     detectSystemTheme
   }

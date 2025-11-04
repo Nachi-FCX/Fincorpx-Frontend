@@ -21,8 +21,8 @@ src/styles/
 src/components/
 └── form/
     └── styles/
-        ├── fnx-inputtext.scss
-        └── fnx-dropdown.scss
+        ├── fcx-inputtext.scss
+        └── fcx-dropdown.scss
 ```
 
 ## Modern Sass Syntax
@@ -240,17 +240,17 @@ Generates CSS custom properties for themes:
   $theme-map: map.get($theme-colors, $theme-name);
   
   @each $key, $value in $theme-map {
-    --fnx-#{$key}: #{$value};
+    --fcx-#{$key}: #{$value};
   }
   
   // Add shadows based on theme
   @if $theme-name == 'dark' {
     @each $key, $value in $dark-shadows {
-      --fnx-shadow-#{$key}: #{$value};
+      --fcx-shadow-#{$key}: #{$value};
     }
   } @else {
     @each $key, $value in $shadows {
-      --fnx-shadow-#{$key}: #{$value};
+      --fcx-shadow-#{$key}: #{$value};
     }
   }
 }
@@ -331,32 +331,32 @@ Consistent form field styling:
   width: 100%;
   font-family: inherit;
   line-height: 1.5;
-  color: var(--fnx-text-primary);
-  background-color: var(--fnx-surface);
-  border: 1px solid var(--fnx-border-normal);
+  color: var(--fcx-text-primary);
+  background-color: var(--fcx-surface);
+  border: 1px solid var(--fcx-border-normal);
   border-radius: map.get($border-radius, md);
   outline: none;
-  @include fnx-transition(border-color, box-shadow, background-color);
+  @include fcx-transition(border-color, box-shadow, background-color);
   
   &::placeholder {
-    color: var(--fnx-text-muted);
+    color: var(--fcx-text-muted);
     opacity: 1;
   }
   
   &:hover:not(:disabled) {
-    border-color: var(--fnx-border-strong);
-    background-color: var(--fnx-surface-hover);
+    border-color: var(--fcx-border-strong);
+    background-color: var(--fcx-surface-hover);
   }
   
   &:focus {
-    border-color: var(--fnx-primary-500);
+    border-color: var(--fcx-primary-500);
     box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-    background-color: var(--fnx-surface);
+    background-color: var(--fcx-surface);
   }
   
   &:disabled {
-    background-color: var(--fnx-surface-active);
-    color: var(--fnx-text-muted);
+    background-color: var(--fcx-surface-active);
+    color: var(--fcx-text-muted);
     cursor: not-allowed;
     opacity: 0.6;
   }
@@ -370,19 +370,19 @@ Error and success states for form fields:
 ```scss
 @mixin form-field-states {
   &--error {
-    border-color: var(--fnx-error-500);
+    border-color: var(--fcx-error-500);
     
     &:focus {
-      border-color: var(--fnx-error-500);
+      border-color: var(--fcx-error-500);
       box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
     }
   }
   
   &--success {
-    border-color: var(--fnx-success-500);
+    border-color: var(--fcx-success-500);
     
     &:focus {
-      border-color: var(--fnx-success-500);
+      border-color: var(--fcx-success-500);
       box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
     }
   }
@@ -423,12 +423,12 @@ Common utility mixins:
 
 // Focus ring
 @mixin focus-ring($offset: 2px) {
-  outline: 2px solid var(--fnx-focus-ring);
+  outline: 2px solid var(--fcx-focus-ring);
   outline-offset: $offset;
 }
 
 // Transitions
-@mixin fnx-transition($properties...) {
+@mixin fcx-transition($properties...) {
   @if length($properties) == 0 {
     $properties: all;
   }
@@ -442,16 +442,16 @@ Common utility mixins:
   }
   
   &::-webkit-scrollbar-track {
-    background: var(--fnx-surface-hover);
+    background: var(--fcx-surface-hover);
     border-radius: calc($width / 2);
   }
   
   &::-webkit-scrollbar-thumb {
-    background: var(--fnx-border-strong);
+    background: var(--fcx-border-strong);
     border-radius: calc($width / 2);
     
     &:hover {
-      background: var(--fnx-text-secondary);
+      background: var(--fcx-text-secondary);
     }
   }
 }
@@ -466,22 +466,22 @@ Automatically generates CSS custom properties from design tokens:
 ```scss
 :root {
   // Transition settings
-  --fnx-transition-duration: #{$transition-duration};
-  --fnx-transition-timing: #{$transition-timing};
+  --fcx-transition-duration: #{$transition-duration};
+  --fcx-transition-timing: #{$transition-timing};
   
   // Border radius
   @each $key, $value in $border-radius {
-    --fnx-border-radius-#{$key}: #{$value};
+    --fcx-border-radius-#{$key}: #{$value};
   }
   
   // Spacing
   @each $key, $value in $spacing {
-    --fnx-spacing-#{$key}: #{$value};
+    --fcx-spacing-#{$key}: #{$value};
   }
   
   // Font sizes
   @each $key, $value in $font-sizes {
-    --fnx-font-size-#{$key}: #{$value};
+    --fcx-font-size-#{$key}: #{$value};
   }
 }
 ```
@@ -492,14 +492,14 @@ Pre-built utility classes for common patterns:
 
 ```scss
 // Text utilities
-.fnx-text {
+.fcx-text {
   &-left { text-align: left; }
   &-center { text-align: center; }
   &-right { text-align: right; }
   
-  &-primary { color: var(--fnx-text-primary); }
-  &-secondary { color: var(--fnx-text-secondary); }
-  &-muted { color: var(--fnx-text-muted); }
+  &-primary { color: var(--fcx-text-primary); }
+  &-secondary { color: var(--fcx-text-secondary); }
+  &-muted { color: var(--fcx-text-muted); }
   
   @each $key, $value in $font-sizes {
     &-#{$key} { font-size: $value; }
@@ -507,15 +507,15 @@ Pre-built utility classes for common patterns:
 }
 
 // Background utilities
-.fnx-bg {
-  &-background { background-color: var(--fnx-background); }
-  &-surface { background-color: var(--fnx-surface); }
-  &-primary { background-color: var(--fnx-primary-500); }
+.fcx-bg {
+  &-background { background-color: var(--fcx-background); }
+  &-surface { background-color: var(--fcx-surface); }
+  &-primary { background-color: var(--fcx-primary-500); }
 }
 
 // Spacing utilities (generated)
-@include generate-spacing-utilities('fnx-m', 'margin');
-@include generate-spacing-utilities('fnx-p', 'padding');
+@include generate-spacing-utilities('fcx-m', 'margin');
+@include generate-spacing-utilities('fcx-p', 'padding');
 ```
 
 ## Component Styling
@@ -525,12 +525,12 @@ Pre-built utility classes for common patterns:
 Each component has its own SCSS file in the component directory:
 
 ```scss
-// src/components/form/styles/fnx-inputtext.scss
+// src/components/form/styles/fcx-inputtext.scss
 @use "sass:map";
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-.fnx-inputtext {
+.fcx-inputtext {
   @include form-field-base;
   @include component-size(md);
   
@@ -554,16 +554,16 @@ Components follow BEM (Block Element Modifier) naming convention:
 
 ```scss
 // Block
-.fnx-inputtext {
+.fcx-inputtext {
   // Base styles
 }
 
 // Elements
-.fnx-inputtext-wrapper {
+.fcx-inputtext-wrapper {
   // Wrapper styles
 }
 
-.fnx-inputtext-icon {
+.fcx-inputtext-icon {
   // Icon styles
   
   &--prefix {
@@ -576,7 +576,7 @@ Components follow BEM (Block Element Modifier) naming convention:
 }
 
 // Modifiers
-.fnx-inputtext {
+.fcx-inputtext {
   &--sm {
     // Small size modifier
   }
@@ -640,9 +640,9 @@ Use CSS custom properties for themeable values:
 ```scss
 // Good
 .component {
-  color: var(--fnx-text-primary);
-  background: var(--fnx-surface);
-  border-color: var(--fnx-border-normal);
+  color: var(--fcx-text-primary);
+  background: var(--fcx-surface);
+  border-color: var(--fcx-border-normal);
 }
 
 // Avoid hardcoded theme colors
@@ -677,7 +677,7 @@ Use mobile-first approach with breakpoint mixins:
 ### 5. Consistent Naming
 
 Follow consistent naming conventions:
-- Use `fnx-` prefix for utility classes
+- Use `fcx-` prefix for utility classes
 - Use BEM methodology for components
 - Use semantic names for colors and spacing
 

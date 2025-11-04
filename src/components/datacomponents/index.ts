@@ -1,7 +1,7 @@
 // Data Components Export
-export { default as FnxDataTable } from './FnxDataTable.vue'
-export { default as FnxDialog } from './FnxDialog.vue'
-export { default as FnxConfirmationDialog } from './FnxConfirmationDialog.vue'
+export { default as FcxDataTable } from './FcxDataTable.vue'
+export { default as FcxDialog } from './FcxDialog.vue'
+export { default as FcxConfirmationDialog } from './FcxConfirmationDialog.vue'
 
 // Data Components Types Export
 export type {
@@ -24,17 +24,17 @@ export type {
   DataTableElement,
   DataTableRef,
   DataTableExpose,
-  FnxDataTableProps,
-  FnxDataTableFilterEvent
+  FcxDataTableProps,
+  FcxDataTableFilterEvent
 } from './types/datatable-types'
 
 export type {
   DialogPosition,
   DialogSize,
   DialogTheme,
-  FnxDialogProps,
-  FnxDialogEmits,
-  FnxDialogSlots,
+  FcxDialogProps,
+  FcxDialogEmits,
+  FcxDialogSlots,
   DialogState,
   DialogSizeConfig,
   DialogThemeConfig,
@@ -50,8 +50,8 @@ export type {
   MOPDialogSlots,
   // Confirmation Dialog Types
   ConfirmationVariant,
-  FnxConfirmationDialogProps,
-  FnxConfirmationDialogEmits,
-  FnxConfirmationDialogSlots,
+  FcxConfirmationDialogProps,
+  FcxConfirmationDialogEmits,
+  FcxConfirmationDialogSlots,
   ConfirmationDialogConfig
 } from './types/dialog-types'

@@ -362,36 +362,8 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
-// White header theme
-:root {
-  // Default to light theme with white background
-  --header-bg: #ffffff;
-  --header-border: #e5e7eb;
-  --header-text: #1f2937;
-  --header-text-secondary: #6b7280;
-  --header-hover: rgba(243, 244, 246, 0.8);
-  --header-shadow: rgba(0, 0, 0, 0.1);
-}
-
-:root[data-theme="light"] {
-  // Light theme with white background
-  --header-bg: #ffffff;
-  --header-border: #e5e7eb;
-  --header-text: #1f2937;
-  --header-text-secondary: #6b7280;
-  --header-hover: rgba(243, 244, 246, 0.8);
-  --header-shadow: rgba(0, 0, 0, 0.1);
-}
-
-:root[data-theme="dark"] {
-  // Dark theme
-  --header-bg: #171717;
-  --header-border: #2d2d2d;
-  --header-text: #ececec;
-  --header-text-secondary: #a1a1aa;
-  --header-hover: rgba(45, 45, 45, 0.8);
-  --header-shadow: rgba(0, 0, 0, 0.3);
-}
+// Header uses global theme variables from global-ui-variables.scss
+// No need for local variable overrides
 
 .app-header {
   position: fixed;

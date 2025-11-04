@@ -10,7 +10,7 @@
     <form @submit.prevent="handleVerifyGSTIN" class="form-content">
       <!-- Company Name Field -->
          <!-- GSTIN Number Field -->
-      <FnxInputtext
+      <FcxInputtext
         name="gstinNumber"
         label="GSTIN Number"
         placeholder="Enter GSTIN number"
@@ -33,8 +33,8 @@
             {{ getStatusText(fetchedGstinData.sts) }}
           </span>
         </template>
-      </FnxInputtext>
-      <FnxInputtext
+      </FcxInputtext>
+      <FcxInputtext
         name="companyName"
         label="Company Name"
         placeholder="Enter company name"
@@ -49,7 +49,7 @@
 
     
       <!-- Send OTP Button -->
-      <FnxButton
+      <FcxButton
         v-if="!gstinVerification.otpSent"
         type="button"
         label="Send OTP"
@@ -63,7 +63,7 @@
       />
 
       <!-- OTP Input Field -->
-      <FnxOtp
+      <FcxOtp
         v-if="gstinVerification.otpSent"
         name="gstinOtp"
         label="Enter GSTIN verification code"
@@ -84,7 +84,7 @@
           <i class="pi pi-clock"></i>
           <span>Resend code in {{ formatTime(gstinVerification.resendCooldown) }}</span>
         </div>
-        <FnxButton
+        <FcxButton
           v-else
           type="button"
           label="Resend OTP"
@@ -99,7 +99,7 @@
       </div>
 
       <!-- Verify Button -->
-      <FnxButton
+      <FcxButton
         v-if="gstinVerification.otpSent"
         type="submit"
         label="Verify GSTIN"
@@ -125,7 +125,7 @@
 
       <!-- Back to signup page -->
       <div class="auth-link">
-        <FnxButton
+        <FcxButton
           type="button"
           label="Back to signup page"
           icon="pi pi-arrow-left"
@@ -146,9 +146,9 @@ import { useAuthStore } from '../stores/authStore'
 import { useCompanyStore } from '@/views/masters/companymasters/stores/companyStore'
 import { useGstinStore } from '@/stores/gstinStore'
 import { OTP_CONFIG } from '../constants/auth-constants'
-import FnxOtp from '@/components/formcomponents/FnxOtp.vue'
-import FnxButton from '@/components/buttoncomponents/FnxButton.vue'
-import FnxInputtext from '@/components/formcomponents/FnxInputtext.vue'
+import FcxOtp from '@/components/formcomponents/FcxOtp.vue'
+import FcxButton from '@/components/buttoncomponents/FcxButton.vue'
+import FcxInputtext from '@/components/formcomponents/FcxInputtext.vue'
 import type { GstinCompanyData } from '@/types/common'
 import { authStorage } from '../utils/storage'
 
@@ -657,7 +657,7 @@ onMounted(() => {
   .state-code-field {
     margin-bottom: 1.5rem;
     
-    :deep(.fnx-inputtext) {
+    :deep(fcx-inputtext) {
       font-weight: 500;
       
       &:focus {
@@ -668,14 +668,14 @@ onMounted(() => {
   }
   
   .gstin-field {
-    :deep(.fnx-inputtext) {
+    :deep(fcx-inputtext) {
       font-family: 'Courier New', monospace;
       letter-spacing: 0.5px;
     }
   }
   
   .state-code-field {
-    :deep(.fnx-inputtext) {
+    :deep(fcx-inputtext) {
       text-align: center;
       font-weight: 600;
     }

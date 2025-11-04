@@ -1,5 +1,5 @@
 <template>
-  <FnxDialog
+  <FcxDialog
     v-model:visible="dialogVisible"
     :modal="true"
     :closable="true"
@@ -64,7 +64,7 @@
         <h3 class="error-title">Something went wrong</h3>
         <p class="error-message">{{ companyStore.error }}</p>
         <div class="error-actions">
-          <FnxButton
+          <FcxButton
             type="button"
             @click="handleRetry"
             severity="primary"
@@ -72,8 +72,8 @@
             size="large"
           >
             Try Again
-          </FnxButton>
-          <FnxButton
+          </FcxButton>
+          <FcxButton
             type="button"
             @click="closeDialog"
             severity="secondary"
@@ -81,19 +81,19 @@
             size="large"
           >
             Cancel
-          </FnxButton>
+          </FcxButton>
         </div>
       </div>
     </div>
-  </FnxDialog>
+  </FcxDialog>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useCompanyStore } from '../stores/companyStore'
 import { DialogPhase, type CompanyInputData } from '../types/company-types'
-import FnxButton from '@/components/buttoncomponents/FnxButton.vue'
-import FnxDialog from '@/components/datacomponents/FnxDialog.vue'
+import FcxButton from '@/components/buttoncomponents/FcxButton.vue'
+import FcxDialog from '@/components/datacomponents/FcxDialog.vue'
 
 // Import sub-components
 import CompanyInputForm from '../components/CompanyInputForm.vue'
@@ -141,7 +141,7 @@ const loadingTitle = computed(() => {
   }
 })
 
-// Computed property for FnxDialog v-model
+// Computed property for FcxDialog v-model
 const dialogVisible = computed({
   get: () => props.visible,
   set: (value: boolean) => {
@@ -163,7 +163,7 @@ const closeDialog = () => {
 }
 
 const handleDialogHide = () => {
-  // Handle FnxDialog hide event
+  // Handle FcxDialog hide event
   emit('close')
 }
 

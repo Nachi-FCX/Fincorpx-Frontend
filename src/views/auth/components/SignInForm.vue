@@ -7,7 +7,7 @@
     
     <form @submit.prevent="handleSignIn" class="form-content">
       <!-- Email/Mobile Input -->
-      <FnxInputtext
+      <FcxInputtext
         name="emailOrMobile"
         label="Email or Mobile"
         placeholder="Enter your email or mobile number"
@@ -25,7 +25,7 @@
             Forgot password?
           </router-link>
         </div>
-        <FnxPassword
+        <FcxPassword
           name="password"
           placeholder="Enter your password"
           autocomplete="current-password"
@@ -37,7 +37,7 @@
       </div>
 
       <!-- Remember Me -->
-      <FnxCheckbox
+      <FcxCheckbox
         name="rememberMe"
         label="Remember me for 30 days"
         :binary="true"
@@ -46,7 +46,7 @@
       />
 
       <!-- Submit Button -->
-      <FnxButton
+      <FcxButton
         type="submit"
         label="Sign In"
         severity="primary"
@@ -107,7 +107,7 @@ const isFormValid = computed(() => {
 // Methods
 const handleSignIn = async () => {
   try {
-    // Basic validation - Fnx components handle detailed validation
+    // Basic validation - Fcx components handle detailed validation
     if (!isFormValid.value) {
       return
     }

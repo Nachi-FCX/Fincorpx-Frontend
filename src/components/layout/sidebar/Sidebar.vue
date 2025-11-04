@@ -15,13 +15,13 @@
        v-if="isCollapsed"
        
 
-          src="@/assets/img/mainasset/fnxlogo.png" 
-        alt="FNX" 
+          src="@/assets/img/mainasset/fcxlogo.png" 
+        alt="fcx" 
         class="company-logo" 
       />
       <img v-else
-        src="@/assets/img/mainasset/fnxname.svg" 
-        alt="FNX" 
+        src="@/assets/img/mainasset/fcxname.svg" 
+        alt="fcx" 
         class="company-logo-name" 
       />
       <!-- <span class="company-name" v-show="!isCollapsed">FINCORP</span> -->
@@ -461,8 +461,8 @@ onUnmounted(() => {
   right: -12px;
   width: 28px;
   height: 28px;
-  background: #2d2d2d;
-  border: 1px solid #4a4a4a;
+  background: var(--sidebar-bg);
+  border: 1px solid var(--sidebar-border);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -470,30 +470,30 @@ onUnmounted(() => {
   cursor: pointer;
   transition: all 0.2s ease;
   z-index: 1001; // Above header (999) but below mobile overlay
-  color: #ececec;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  color: var(--sidebar-text);
+  box-shadow: var(--fcx-shadow);
   outline: none;
 
   &:hover {
-    background: #3a3a3a;
+    background: var(--sidebar-hover);
     transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-    color: #ffffff;
-    border-color: #5a5a5a;
+    box-shadow: var(--fcx-shadow-lg);
+    color: var(--sidebar-text);
+    border-color: var(--sidebar-border-hover);
   }
 
   &:focus {
     outline: none;
-    background: #4a4a4a;
-    border-color: #6a6a6a;
-    color: #ffffff;
-    box-shadow: 0 0 0 3px rgba(74, 74, 74, 0.3);
+    background: var(--sidebar-hover);
+    border-color: var(--sidebar-border-hover);
+    color: var(--sidebar-text);
+    box-shadow: 0 0 0 3px var(--fcx-border-focus);
   }
 
   &:active {
-    background: #1a1a1a;
+    background: var(--sidebar-bg);
     transform: scale(0.95);
-    color: #cccccc;
+    color: var(--sidebar-text-secondary);
   }
 
   .toggle-icon {
@@ -524,26 +524,26 @@ onUnmounted(() => {
 
 // Light theme toggle button
 :root[data-theme="light"] .sidebar-toggle {
-  background: #ffffff;
-  color: #374151;
-  border-color: #64748b;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  border-color: var(--sidebar-border);
 
   &:hover {
-    background: #f8fafc;
-    color: #1f2937;
-    border-color: #475569;
+    background: var(--sidebar-hover);
+    color: var(--sidebar-text);
+    border-color: var(--sidebar-border-hover);
   }
 
   &:focus {
-    background: #e2e8f0;
-    border-color: #475569;
-    color: #1f2937;
-    box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.2);
+    background: var(--sidebar-hover);
+    border-color: var(--sidebar-border-hover);
+    color: var(--sidebar-text);
+    box-shadow: 0 0 0 3px var(--fcx-border-focus);
   }
 
   &:active {
-    background: #cbd5e1;
-    color: #0f172a;
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text-secondary);
   }
 }
 

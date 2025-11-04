@@ -57,10 +57,10 @@ const router = createRouter({
         title: 'Reset Password - FinCorpX'
       }
     },
-    // Protected Dashboard Routes - Wrapped with FnxLayout
+    // Protected Dashboard Routes - Wrapped with FcxLayout
     {
       path: '/',
-      component: () => import('@/components/layout/FnxLayout.vue'),
+      component: () => import('@/components/layout/FcxLayout.vue'),
       meta: { requiresAuth: true },
       children: [
         {

@@ -12,10 +12,10 @@ export interface ValidationResult {
  * Validates GSTIN format and checksum
  */
 export function validateGSTIN(gstin: string): ValidationResult {
-  if (!gstin || typeof gstin !== 'string') {
+  if (!gstin || typeof gstin !== 'string' || gstin.trim() === '') {
     return {
       isValid: false,
-      message: ERROR_MESSAGES.INVALID_GSTIN
+      message: 'This field is required'
     }
   }
 
@@ -55,10 +55,10 @@ export function validateGSTIN(gstin: string): ValidationResult {
  * Validates GST Username
  */
 export function validateUsername(username: string): ValidationResult {
-  if (!username || typeof username !== 'string') {
+  if (!username || typeof username !== 'string' || username.trim() === '') {
     return {
       isValid: false,
-      message: ERROR_MESSAGES.INVALID_USERNAME
+      message: 'This field is required'
     }
   }
 

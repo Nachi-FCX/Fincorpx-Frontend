@@ -1,7 +1,7 @@
 <template>
   <div class="enhanced-datatable-demo">
     <div class="demo-header">
-      <h1>Enhanced FNX DataTable Demo</h1>
+      <h1>Enhanced Fcx DataTable Demo</h1>
       <p>All features consolidated into a single comprehensive component</p>
     </div>
 
@@ -70,7 +70,7 @@
     </div>
 
     <!-- Enhanced DataTable -->
-    <FnxDataTable
+    <FcxDataTable
       :value="tableData"
       :columns="columns"
       :size="selectedSize"
@@ -117,7 +117,7 @@
           <i class="pi pi-trash"></i>
         </button>
       </template>
-    </FnxDataTable>
+    </FcxDataTable>
 
     <!-- Selection Info -->
     <div v-if="selectedRows && selectedRows.length" class="selection-info">
@@ -141,7 +141,7 @@
 
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import FnxDataTable from '@/components/datacomponents/FnxDataTable.vue'
+import FcxDataTable from '@/components/datacomponents/FcxDataTable.vue'
 
 // Reactive state
 const selectedSize = ref<'small' | 'medium' | 'large'>('medium')

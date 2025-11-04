@@ -1,21 +1,21 @@
 <template>
   <div class="button-demo">
     <div class="button-demo-header">
-      <h1>FNX Button Components Demo</h1>
+      <h1>Fcx Button Components Demo</h1>
       <p>Comprehensive showcase of all button variants with theme integration</p>
     </div>
 
-    <!-- FnxButton Demos -->
+    <!-- FcxButton Demos -->
     <section class="button-demo-section">
-      <h2>FnxButton - Main Button Component</h2>
+      <h2>FcxButton - Main Button Component</h2>
       
       <!-- Size Variants -->
       <div class="button-demo-group">
         <h3>Size Variants</h3>
         <div class="button-demo-row">
-          <FnxButton label="Small Button" size="small" />
-          <FnxButton label="Medium Button" size="medium" />
-          <FnxButton label="Large Button" size="large" />
+          <FcxButton label="Small Button" size="small" />
+          <FcxButton label="Medium Button" size="medium" />
+          <FcxButton label="Large Button" size="large" />
         </div>
       </div>
 
@@ -23,13 +23,13 @@
       <div class="button-demo-group">
         <h3>Severity Variants (Filled)</h3>
         <div class="button-demo-row">
-          <FnxButton label="Primary" severity="primary" />
-          <FnxButton label="Secondary" severity="secondary" />
-          <FnxButton label="Success" severity="success" />
-          <FnxButton label="Info" severity="info" />
-          <FnxButton label="Warning" severity="warning" />
-          <FnxButton label="Danger" severity="danger" />
-          <FnxButton label="Help" severity="help" />
+          <FcxButton label="Primary" severity="primary" />
+          <FcxButton label="Secondary" severity="secondary" />
+          <FcxButton label="Success" severity="success" />
+          <FcxButton label="Info" severity="info" />
+          <FcxButton label="Warning" severity="warning" />
+          <FcxButton label="Danger" severity="danger" />
+          <FcxButton label="Help" severity="help" />
         </div>
       </div>
 
@@ -37,10 +37,10 @@
       <div class="button-demo-group">
         <h3>Style Variants</h3>
         <div class="button-demo-row">
-          <FnxButton label="Filled" variant="filled" />
-          <FnxButton label="Outlined" variant="outlined" />
-          <FnxButton label="Text" variant="text" />
-          <FnxButton label="Ghost" variant="ghost" />
+          <FcxButton label="Filled" variant="filled" />
+          <FcxButton label="Outlined" variant="outlined" />
+          <FcxButton label="Text" variant="text" />
+          <FcxButton label="Ghost" variant="ghost" />
         </div>
       </div>
 
@@ -48,12 +48,12 @@
       <div class="button-demo-group">
         <h3>Outlined Variants</h3>
         <div class="button-demo-row">
-          <FnxButton label="Primary" severity="primary" variant="outlined" />
-          <FnxButton label="Secondary" severity="secondary" variant="outlined" />
-          <FnxButton label="Success" severity="success" variant="outlined" />
-          <FnxButton label="Info" severity="info" variant="outlined" />
-          <FnxButton label="Warning" severity="warning" variant="outlined" />
-          <FnxButton label="Danger" severity="danger" variant="outlined" />
+          <FcxButton label="Primary" severity="primary" variant="outlined" />
+          <FcxButton label="Secondary" severity="secondary" variant="outlined" />
+          <FcxButton label="Success" severity="success" variant="outlined" />
+          <FcxButton label="Info" severity="info" variant="outlined" />
+          <FcxButton label="Warning" severity="warning" variant="outlined" />
+          <FcxButton label="Danger" severity="danger" variant="outlined" />
         </div>
       </div>
 
@@ -61,12 +61,12 @@
       <div class="button-demo-group">
         <h3>Text Variants</h3>
         <div class="button-demo-row">
-          <FnxButton label="Primary" severity="primary" variant="text" />
-          <FnxButton label="Secondary" severity="secondary" variant="text" />
-          <FnxButton label="Success" severity="success" variant="text" />
-          <FnxButton label="Info" severity="info" variant="text" />
-          <FnxButton label="Warning" severity="warning" variant="text" />
-          <FnxButton label="Danger" severity="danger" variant="text" />
+          <FcxButton label="Primary" severity="primary" variant="text" />
+          <FcxButton label="Secondary" severity="secondary" variant="text" />
+          <FcxButton label="Success" severity="success" variant="text" />
+          <FcxButton label="Info" severity="info" variant="text" />
+          <FcxButton label="Warning" severity="warning" variant="text" />
+          <FcxButton label="Danger" severity="danger" variant="text" />
         </div>
       </div>
 
@@ -74,10 +74,10 @@
       <div class="button-demo-group">
         <h3>Buttons with Icons</h3>
         <div class="button-demo-row">
-          <FnxButton label="Save" icon="fas fa-save" />
-          <FnxButton label="Delete" icon="fas fa-trash" severity="danger" />
-          <FnxButton label="Edit" icon="fas fa-edit" severity="info" variant="outlined" />
-          <FnxButton label="Download" icon="fas fa-download" iconPos="right" />
+          <FcxButton label="Save" icon="fas fa-save" />
+          <FcxButton label="Delete" icon="fas fa-trash" severity="danger" />
+          <FcxButton label="Edit" icon="fas fa-edit" severity="info" variant="outlined" />
+          <FcxButton label="Download" icon="fas fa-download" iconPos="right" />
         </div>
       </div>
 
@@ -85,11 +85,11 @@
       <div class="button-demo-group">
         <h3>Special States</h3>
         <div class="button-demo-row">
-          <FnxButton label="Loading" :loading="true" />
-          <FnxButton label="Disabled" :disabled="true" />
-          <FnxButton label="Raised" :raised="true" />
-          <FnxButton label="Rounded" :rounded="true" />
-          <FnxButton label="Block Button" :block="true" class="block-demo" />
+          <FcxButton label="Loading" :loading="true" />
+          <FcxButton label="Disabled" :disabled="true" />
+          <FcxButton label="Raised" :raised="true" />
+          <FcxButton label="Rounded" :rounded="true" />
+          <FcxButton label="Block Button" :block="true" class="block-demo" />
         </div>
       </div>
 
@@ -97,25 +97,25 @@
       <div class="button-demo-group">
         <h3>Icon Only Buttons</h3>
         <div class="button-demo-row">
-          <FnxButton icon="fas fa-heart" :icon-only="true" severity="danger" />
-          <FnxButton icon="fas fa-star" :icon-only="true" severity="warning" />
-          <FnxButton icon="fas fa-thumbs-up" :icon-only="true" severity="success" />
-          <FnxButton icon="fas fa-share" :icon-only="true" severity="info" variant="outlined" />
+          <FcxButton icon="fas fa-heart" :icon-only="true" severity="danger" />
+          <FcxButton icon="fas fa-star" :icon-only="true" severity="warning" />
+          <FcxButton icon="fas fa-thumbs-up" :icon-only="true" severity="success" />
+          <FcxButton icon="fas fa-share" :icon-only="true" severity="info" variant="outlined" />
         </div>
       </div>
     </section>
 
-    <!-- FnxIconButton Demos -->
+    <!-- FcxIconButton Demos -->
     <section class="button-demo-section">
-      <h2>FnxIconButton - Icon Button Component</h2>
+      <h2>FcxIconButton - Icon Button Component</h2>
       
       <!-- Size Variants -->
       <div class="button-demo-group">
         <h3>Size Variants</h3>
         <div class="button-demo-row">
-          <FnxIconButton icon="fas fa-cog" size="small" tooltip="Small Settings" />
-          <FnxIconButton icon="fas fa-cog" size="medium" tooltip="Medium Settings" />
-          <FnxIconButton icon="fas fa-cog" size="large" tooltip="Large Settings" />
+          <FcxIconButton icon="fas fa-cog" size="small" tooltip="Small Settings" />
+          <FcxIconButton icon="fas fa-cog" size="medium" tooltip="Medium Settings" />
+          <FcxIconButton icon="fas fa-cog" size="large" tooltip="Large Settings" />
         </div>
       </div>
 
@@ -123,8 +123,8 @@
       <div class="button-demo-group">
         <h3>Shape Variants</h3>
         <div class="button-demo-row">
-          <FnxIconButton icon="fas fa-user" :rounded="true" tooltip="Rounded" />
-          <FnxIconButton icon="fas fa-user" :rounded="false" tooltip="Square" />
+          <FcxIconButton icon="fas fa-user" :rounded="true" tooltip="Rounded" />
+          <FcxIconButton icon="fas fa-user" :rounded="false" tooltip="Square" />
         </div>
       </div>
 
@@ -132,13 +132,13 @@
       <div class="button-demo-group">
         <h3>Severity Variants (Filled)</h3>
         <div class="button-demo-row">
-          <FnxIconButton icon="fas fa-home" severity="primary" variant="filled" tooltip="Primary" />
-          <FnxIconButton icon="fas fa-user" severity="secondary" variant="filled" tooltip="Secondary" />
-          <FnxIconButton icon="fas fa-check" severity="success" variant="filled" tooltip="Success" />
-          <FnxIconButton icon="fas fa-info" severity="info" variant="filled" tooltip="Info" />
-          <FnxIconButton icon="fas fa-exclamation" severity="warning" variant="filled" tooltip="Warning" />
-          <FnxIconButton icon="fas fa-times" severity="danger" variant="filled" tooltip="Danger" />
-          <FnxIconButton icon="fas fa-question" severity="help" variant="filled" tooltip="Help" />
+          <FcxIconButton icon="fas fa-home" severity="primary" variant="filled" tooltip="Primary" />
+          <FcxIconButton icon="fas fa-user" severity="secondary" variant="filled" tooltip="Secondary" />
+          <FcxIconButton icon="fas fa-check" severity="success" variant="filled" tooltip="Success" />
+          <FcxIconButton icon="fas fa-info" severity="info" variant="filled" tooltip="Info" />
+          <FcxIconButton icon="fas fa-exclamation" severity="warning" variant="filled" tooltip="Warning" />
+          <FcxIconButton icon="fas fa-times" severity="danger" variant="filled" tooltip="Danger" />
+          <FcxIconButton icon="fas fa-question" severity="help" variant="filled" tooltip="Help" />
         </div>
       </div>
 
@@ -146,10 +146,10 @@
       <div class="button-demo-group">
         <h3>Style Variants</h3>
         <div class="button-demo-row">
-          <FnxIconButton icon="fas fa-heart" variant="filled" tooltip="Filled" />
-          <FnxIconButton icon="fas fa-heart" variant="outlined" tooltip="Outlined" />
-          <FnxIconButton icon="fas fa-heart" variant="text" tooltip="Text" />
-          <FnxIconButton icon="fas fa-heart" variant="ghost" tooltip="Ghost" />
+          <FcxIconButton icon="fas fa-heart" variant="filled" tooltip="Filled" />
+          <FcxIconButton icon="fas fa-heart" variant="outlined" tooltip="Outlined" />
+          <FcxIconButton icon="fas fa-heart" variant="text" tooltip="Text" />
+          <FcxIconButton icon="fas fa-heart" variant="ghost" tooltip="Ghost" />
         </div>
       </div>
 
@@ -157,12 +157,12 @@
       <div class="button-demo-group">
         <h3>Outlined Variants</h3>
         <div class="button-demo-row">
-          <FnxIconButton icon="fas fa-home" severity="primary" variant="outlined" tooltip="Primary Outlined" />
-          <FnxIconButton icon="fas fa-user" severity="secondary" variant="outlined" tooltip="Secondary Outlined" />
-          <FnxIconButton icon="fas fa-check" severity="success" variant="outlined" tooltip="Success Outlined" />
-          <FnxIconButton icon="fas fa-info" severity="info" variant="outlined" tooltip="Info Outlined" />
-          <FnxIconButton icon="fas fa-exclamation" severity="warning" variant="outlined" tooltip="Warning Outlined" />
-          <FnxIconButton icon="fas fa-times" severity="danger" variant="outlined" tooltip="Danger Outlined" />
+          <FcxIconButton icon="fas fa-home" severity="primary" variant="outlined" tooltip="Primary Outlined" />
+          <FcxIconButton icon="fas fa-user" severity="secondary" variant="outlined" tooltip="Secondary Outlined" />
+          <FcxIconButton icon="fas fa-check" severity="success" variant="outlined" tooltip="Success Outlined" />
+          <FcxIconButton icon="fas fa-info" severity="info" variant="outlined" tooltip="Info Outlined" />
+          <FcxIconButton icon="fas fa-exclamation" severity="warning" variant="outlined" tooltip="Warning Outlined" />
+          <FcxIconButton icon="fas fa-times" severity="danger" variant="outlined" tooltip="Danger Outlined" />
         </div>
       </div>
 
@@ -170,12 +170,12 @@
       <div class="button-demo-group">
         <h3>Ghost Variants</h3>
         <div class="button-demo-row">
-          <FnxIconButton icon="fas fa-home" severity="primary" variant="ghost" tooltip="Primary Ghost" />
-          <FnxIconButton icon="fas fa-user" severity="secondary" variant="ghost" tooltip="Secondary Ghost" />
-          <FnxIconButton icon="fas fa-check" severity="success" variant="ghost" tooltip="Success Ghost" />
-          <FnxIconButton icon="fas fa-info" severity="info" variant="ghost" tooltip="Info Ghost" />
-          <FnxIconButton icon="fas fa-exclamation" severity="warning" variant="ghost" tooltip="Warning Ghost" />
-          <FnxIconButton icon="fas fa-times" severity="danger" variant="ghost" tooltip="Danger Ghost" />
+          <FcxIconButton icon="fas fa-home" severity="primary" variant="ghost" tooltip="Primary Ghost" />
+          <FcxIconButton icon="fas fa-user" severity="secondary" variant="ghost" tooltip="Secondary Ghost" />
+          <FcxIconButton icon="fas fa-check" severity="success" variant="ghost" tooltip="Success Ghost" />
+          <FcxIconButton icon="fas fa-info" severity="info" variant="ghost" tooltip="Info Ghost" />
+          <FcxIconButton icon="fas fa-exclamation" severity="warning" variant="ghost" tooltip="Warning Ghost" />
+          <FcxIconButton icon="fas fa-times" severity="danger" variant="ghost" tooltip="Danger Ghost" />
         </div>
       </div>
 
@@ -183,8 +183,8 @@
       <div class="button-demo-group">
         <h3>Special States</h3>
         <div class="button-demo-row">
-          <FnxIconButton icon="fas fa-spinner" :loading="true" tooltip="Loading" />
-          <FnxIconButton icon="fas fa-ban" :disabled="true" tooltip="Disabled" />
+          <FcxIconButton icon="fas fa-spinner" :loading="true" tooltip="Loading" />
+          <FcxIconButton icon="fas fa-ban" :disabled="true" tooltip="Disabled" />
         </div>
       </div>
     </section>
@@ -195,12 +195,12 @@
       <div class="button-demo-group">
         <h3>Click Counter</h3>
         <div class="button-demo-row">
-          <FnxButton 
+          <FcxButton 
             :label="`Clicked ${clickCount} times`" 
             @click="incrementCounter"
             severity="primary"
           />
-          <FnxIconButton 
+          <FcxIconButton 
             icon="fas fa-redo" 
             @click="resetCounter"
             severity="secondary"
@@ -213,7 +213,7 @@
       <div class="button-demo-group">
         <h3>Loading State Toggle</h3>
         <div class="button-demo-row">
-          <FnxButton 
+          <FcxButton 
             :label="isLoading ? 'Loading...' : 'Start Loading'"
             :loading="isLoading"
             @click="toggleLoading"

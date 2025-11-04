@@ -19,7 +19,7 @@ export type DialogSize = 'small' | 'medium' | 'large' | 'fullscreen' | 's' | 'm'
 export type DialogTheme = 'default' | 'minimal' | 'bordered'
 
 // Main dialog props interface
-export interface FnxDialogProps {
+export interface FcxDialogProps {
   /** Whether the dialog is visible */
   visible: boolean
   /** Dialog header text */
@@ -93,7 +93,7 @@ export interface FnxDialogProps {
 }
 
 // Dialog events interface
-export interface FnxDialogEmits {
+export interface FcxDialogEmits {
   /** Emitted when dialog visibility changes */
   'update:visible': [visible: boolean]
   /** Emitted when dialog is shown */
@@ -119,7 +119,7 @@ export interface FnxDialogEmits {
 }
 
 // Dialog slot types
-export interface FnxDialogSlots {
+export interface FcxDialogSlots {
   /** Default slot for dialog content */
   default: () => any
   /** Header slot */
@@ -201,7 +201,7 @@ export interface DialogAnimationConfig {
 }
 
 // Complete dialog configuration
-export interface DialogConfig extends FnxDialogProps {
+export interface DialogConfig extends FcxDialogProps {
   sizeConfig?: Record<DialogSize, DialogSizeConfig>
   themeConfig?: Record<DialogTheme, DialogThemeConfig>
   responsiveConfig?: DialogResponsiveConfig[]
@@ -237,7 +237,7 @@ export interface DialogExpose {
 export type ConfirmationVariant = 'info' | 'warning' | 'danger' | 'success'
 
 // Confirmation dialog props interface
-export interface FnxConfirmationDialogProps {
+export interface FcxConfirmationDialogProps {
   /** Whether the confirmation dialog is visible */
   visible: boolean
   /** Dialog title */
@@ -263,7 +263,7 @@ export interface FnxConfirmationDialogProps {
 }
 
 // Confirmation dialog emits interface
-export interface FnxConfirmationDialogEmits {
+export interface FcxConfirmationDialogEmits {
   /** Emitted when dialog visibility changes */
   'update:visible': [visible: boolean]
   /** Emitted when user confirms */
@@ -273,7 +273,7 @@ export interface FnxConfirmationDialogEmits {
 }
 
 // Confirmation dialog slots interface
-export interface FnxConfirmationDialogSlots {
+export interface FcxConfirmationDialogSlots {
   /** Custom content slot */
   default?: () => any
   /** Custom icon slot */
@@ -301,6 +301,6 @@ export interface ConfirmationDialogConfig {
 }
 
 // Legacy type aliases for backward compatibility
-export type MOPDialogProps = FnxDialogProps
-export type MOPDialogEmits = FnxDialogEmits
-export type MOPDialogSlots = FnxDialogSlots
+export type MOPDialogProps = FcxDialogProps
+export type MOPDialogEmits = FcxDialogEmits
+export type MOPDialogSlots = FcxDialogSlots
