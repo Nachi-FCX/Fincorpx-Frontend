@@ -46,5 +46,21 @@
       "min": "The {field} field must have at least {min} characters.",
       "max": "The {field} field must not exceed {max} characters."
     }
+  },
+  "invoice": {
+    "ocr": {
+      "title": "Invoice OCR Processing",
+      "uploadDocument": "Upload Document",
+      "processOcr": "Process OCR",
+      "noPdfSelected": "No document selected",
+      "uploadFirst": "Upload Document First"
+    },
+    "form": {
+      "title": "Invoice Form"
+    },
+    "documents": {
+      "title": "Documents",
+      "empty": "No documents uploaded"
+    }
   }
 }

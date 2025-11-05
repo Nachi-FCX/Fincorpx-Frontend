@@ -16,7 +16,7 @@
       <DatePicker
         :id="calendarId"
         ref="calendarRef"
-        :model-value="value"
+        :model-value="dateValue"
         :placeholder="placeholder"
         :disabled="disabled || loading"
         :selection-mode="selectionMode"
@@ -156,6 +156,21 @@ const {
   syncVModel: true
 })
 
+// Convert string dates to Date objects for PrimeVue DatePicker
+const dateValue = computed(() => {
+  if (!value.value) return null
+  
+  if (typeof value.value === 'string') {
+    return new Date(value.value)
+  }
+  
+  if (Array.isArray(value.value)) {
+    return value.value.map(v => typeof v === 'string' ? new Date(v) : v)
+  }
+  
+  return value.value
+})
+
 // Computed properties
 const fieldClass = computed(() => [
   props.class,
@@ -248,135 +263,3 @@ defineExpose({
 })
 </script>
 
-<style scoped>
-fcx-calendar-wrapper {
-  position: relative;
-}
-
-fcx-calendar-loading {
-  position: absolute;
-  right: var(--fcx-spacing-sm);
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-}
-
-fcx-spinner {
-  width: 16px;
-  height: 16px;
-  border: 2px solid var(--fcx-border-light);
-  border-top: 2px solid var(--fcx-primary-500);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Size variants */
-fcx-calendar--sm {
-  font-size: var(--fcx-font-size-sm);
-}
-
-fcx-calendar--lg {
-  font-size: var(--fcx-font-size-lg);
-}
-
-/* State variants */
-fcx-calendar--error {
-  border-color: var(--fcx-error-500);
-}
-
-fcx-calendar--success {
-  border-color: var(--fcx-success-500);
-}
-
-fcx-calendar--loading {
-  opacity: 0.7;
-}
-
-/* Inline calendar styling */
-fcx-calendar--inline {
-  display: block;
-  width: 100%;
-}
-
-/* Time picker styling */
-fcx-calendar--with-time :deep(.p-calendar-time-picker) {
-  border-top: 1px solid var(--fcx-border-normal);
-  padding-top: var(--fcx-spacing-sm);
-}
-
-fcx-calendar--time-only :deep(.p-datepicker-calendar) {
-  display: none;
-}
-
-/* Custom calendar styling */
-fcx-calendar :deep(.p-inputtext) {
-  border-radius: var(--fcx-border-radius-md);
-  transition: all var(--fcx-transition-duration) var(--fcx-transition-timing);
-}
-
-fcx-calendar :deep(.p-inputtext:hover) {
-  border-color: var(--fcx-primary-400);
-}
-
-fcx-calendar :deep(.p-inputtext:focus) {
-  outline: 2px solid var(--fcx-primary-200);
-  outline-offset: 2px;
-  border-color: var(--fcx-primary-500);
-}
-
-fcx-calendar--error :deep(.p-inputtext) {
-  border-color: var(--fcx-error-500);
-}
-
-fcx-calendar--success :deep(.p-inputtext) {
-  border-color: var(--fcx-success-500);
-}
-
-/* Calendar icon styling */
-fcx-calendar :deep(.p-datepicker-trigger) {
-  background: transparent;
-  border: none;
-  color: var(--fcx-text-secondary);
-  transition: color var(--fcx-transition-duration) var(--fcx-transition-timing);
-}
-
-fcx-calendar :deep(.p-datepicker-trigger:hover) {
-  color: var(--fcx-primary-500);
-}
-
-/* Calendar panel styling */
-fcx-calendar :deep(.p-datepicker) {
-  border-radius: var(--fcx-border-radius-lg);
-  box-shadow: var(--fcx-shadow-lg);
-  border: 1px solid var(--fcx-border-normal);
-}
-
-fcx-calendar :deep(.p-datepicker-header) {
-  background: var(--fcx-surface);
-  border-bottom: 1px solid var(--fcx-border-light);
-  border-radius: var(--fcx-border-radius-lg) var(--fcx-border-radius-lg) 0 0;
-}
-
-fcx-calendar :deep(.p-datepicker-calendar td > span) {
-  border-radius: var(--fcx-border-radius-sm);
-  transition: all var(--fcx-transition-duration) var(--fcx-transition-timing);
-}
-
-fcx-calendar :deep(.p-datepicker-calendar td > span:hover) {
-  background: var(--fcx-primary-100);
-  color: var(--fcx-primary-700);
-}
-
-fcx-calendar :deep(.p-datepicker-calendar td > span.p-highlight) {
-  background: var(--fcx-primary-500);
-  color: var(--fcx-text-inverse);
-}
-</style>

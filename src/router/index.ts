@@ -103,6 +103,15 @@ const router = createRouter({
             title: 'Reporting - FinCorpX'
           }
         },
+         {
+          path: 'SalesInvoice',
+          name: 'sales-invoice',
+          component: () => import('../views/demo/DataTableDemoView.vue'), // Placeholder
+          meta: { 
+            requiresAuth: true,
+            title: 'Sales Invoice - FinCorpX'
+          }
+        },
         {
           path: 'users',
           name: 'users',
@@ -152,6 +161,16 @@ const router = createRouter({
           meta: { 
             requiresAuth: true,
             title: 'GSTIN Management - FinCorpX'
+          }
+        },
+        // Invoice OCR Routes
+        {
+          path: 'invoice',
+          name: 'invoice',
+          component: () => import('@/views/invoice/InvoiceOcrView.vue'),
+          meta: { 
+            requiresAuth: true,
+            title: 'Invoice - FinCorpX'
           }
         },
         // Demo Routes

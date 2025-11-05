@@ -24,14 +24,21 @@
       "type": "single",
       "order": 3
     },
-  
+    {
+      "id": "invoice",
+      "title": "Invoice",
+      "icon": "dashboard.svg",
+      "route": "/invoice",
+      "type": "single",
+      "order": 4
+    },
     {
       "id": "reporting",
       "title": "Reporting",
       "icon": "reporting.svg",
       "route": "/reporting",
       "type": "single",
-      "order": 4
+      "order": 5
     }
 
   ],
