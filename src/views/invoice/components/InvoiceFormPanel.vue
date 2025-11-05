@@ -161,7 +161,7 @@
               <!-- VAT (for UAE, etc.) -->
               <div class="summary-row" v-if="localInvoiceData.currency === 'AED' || !localInvoiceData.totalCGST">
                 <label>VAT:</label>
-                <span class="value">{{ formatAmount(localInvoiceData.totalVAT || 0) }}</span>
+                <!-- <span class="value">{{ formatAmount(localInvoiceData.totalVAT || 0) }}</span> -->
               </div>
               
               <div class="summary-row" v-if="localInvoiceData.totalCess">
