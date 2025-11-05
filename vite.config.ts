@@ -20,9 +20,17 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: Number(process.env.PORT) || 5173,
+    allowedHosts: [
+      'fincorpx-frontend-ocr.onrender.com',
+      '.onrender.com', // Allow all Render subdomains
+    ],
   },
   preview: {
     host: '0.0.0.0',
     port: Number(process.env.PORT) || 5173,
+    allowedHosts: [
+      'fincorpx-frontend-ocr.onrender.com',
+      '.onrender.com', // Allow all Render subdomains
+    ],
   },
 })
