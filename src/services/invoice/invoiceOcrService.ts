@@ -6,7 +6,11 @@ import type {
   InvoiceData 
 } from '@/views/invoice/types/invoice-ocr.types';
 
-const OCR_API_BASE_URL = import.meta.env.VITE_OCR_API_URL || 'http://localhost:8000/api/ocr';
+const OCR_API_BASE_URL = import.meta.env.VITE_OCR_API_URL || 
+'https://fcx-ocr-python-backend.onrender.com/api/ocr';
+// 'http://localhost:8000/api/ocr';
+
+
 
 export interface OcrUploadProgress {
   loaded: number;
