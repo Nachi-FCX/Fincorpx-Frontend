@@ -287,7 +287,7 @@ export interface AutoCompleteProps extends BaseFieldProps {
 // Calendar specific props
 export interface CalendarProps extends BaseFieldProps {
   /** Model value */
-  modelValue?: Date | Date[] | string | null
+  modelValue?: Date | Date[] | null
   /** Selection mode */
   selectionMode?: 'single' | 'multiple' | 'range'
   /** Date format */

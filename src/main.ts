@@ -2,7 +2,6 @@ import './assets/main.css'
 import './styles/base.scss'
 import './styles/rtl.scss'
 import './assets/styles/global-ui-variables.scss'
-import './components/formcomponents/styles/index.scss'
 import 'primeicons/primeicons.css'
 
 import { createApp } from 'vue'
@@ -11,7 +10,6 @@ import { createPinia } from 'pinia'
 // PrimeVue imports
 import PrimeVue from 'primevue/config'
 import Aura from '@primeuix/themes/aura'
-import ToastService from 'primevue/toastservice'
 
 // VeeValidate imports
 import { configure } from 'vee-validate'
@@ -85,9 +83,6 @@ app.use(PrimeVue, {
     }
   }
 })
-
-// Install PrimeVue ToastService
-app.use(ToastService)
 
 // Install custom components
 app.use(FcxFormPlugin)

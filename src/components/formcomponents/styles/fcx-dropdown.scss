@@ -82,15 +82,15 @@
   transform: translateY(-50%);
   z-index: 2;
 }
-ß
+
 // Clear button
-.fcx-dropdown-clear {
+fcx-dropdown-clear {
   @include clear-button;
   right: calc(#{map.get($spacing, md)} + 24px);
 }
 
 // Dropdown panel
-.fcx-dropdown-panel {
+fcx-dropdown-panel {
   background: var(--fcx-surface);
   border: 1px solid var(--fcx-border-normal);
   border-radius: map.get($border-radius, md);

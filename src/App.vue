@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { useI18n } from '@/composables/useI18n'
-import Toast from 'primevue/toast'
 
 // Initialize i18n and set up direction
 const { initializeDirection } = useI18n()
@@ -13,7 +12,6 @@ onMounted(() => {
 
 <template>
   <div id="app">
-    <Toast />
     <router-view />
   </div>
 </template>
