@@ -45,5 +45,18 @@
       "min": "حقل {field} يجب أن يحتوي على {min} أحرف على الأقل.",
       "max": "حقل {field} يجب ألا يتجاوز {max} حرف."
     }
+  },
+  "invoice": {
+    "ocr": {
+      "title": "التعرف الضوئي على الفواتير",
+      "uploadDocument": "تحميل المستند",
+      "processOcr": "معالجة OCR",
+      "noPdfSelected": "لم يتم تحديد PDF",
+      "uploadFirst": "تحميل أولاً"
+    },
+    "documents": {
+      "title": "المستندات",
+      "empty": "لم يتم تحميل أي مستندات بعد"
+    }
   }
 }

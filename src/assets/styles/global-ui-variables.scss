@@ -215,6 +215,17 @@ $form-input-icon-small: 14px;                          // Small input icons
 $form-input-icon-medium: $menu-icon-size-mini;         // 16px - Medium input icons
 $form-input-icon-large: $menu-icon-size-small;         // 18px - Large input icons
 
+// Form input padding
+$form-input-padding-x: 7px;                            // Horizontal padding for inputs
+$form-input-padding-y: 7px;                            // Vertical padding for inputs
+$form-input-padding-x-sm: 5px;                         // Small input horizontal padding
+$form-input-padding-y-sm: 5px;                         // Small input vertical padding
+$form-input-padding-x-lg: 9px;                         // Large input horizontal padding
+$form-input-padding-y-lg: 9px;                         // Large input vertical padding
+
+// Form icon container padding
+$form-icon-padding: 7px;                               // Padding for icon containers (calendar, dropdown icons)
+
 // =============================================================================
 // BUTTON SPECIFIC VARIABLES
 // =============================================================================

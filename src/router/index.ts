@@ -85,6 +85,19 @@ const router = createRouter({
             title: 'Bills - FinCorpX'
           }
         },
+
+       
+
+
+        {
+          path: 'invoice',
+          name: 'invoice',
+          component: () => import('../views/invoice/InvoiceOcrView.vue'), // Placeholder
+          meta: { 
+            requiresAuth: true,
+            title: 'Invoice - FinCorpX'
+          }
+        },
         {
           path: 'analysis',
           name: 'analysis',

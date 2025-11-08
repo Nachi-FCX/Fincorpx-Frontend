@@ -14,6 +14,7 @@ import FcxAutoComplete from '../components/formcomponents/FcxAutoComplete.vue'
 import FcxInputMask from '../components/formcomponents/FcxInputMask.vue'
 
 // Import component styles
+import '../components/formcomponents/styles/common.scss'
 import '../components/formcomponents/styles/fcx-inputtext.scss'
 import '../components/formcomponents/styles/fcx-dropdown.scss'
 

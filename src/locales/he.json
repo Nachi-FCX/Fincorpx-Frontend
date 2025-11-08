@@ -45,5 +45,18 @@
       "min": "השדה {field} חייב להכיל לפחות {min} תווים.",
       "max": "השדה {field} לא יכול לחרוג מ-{max} תווים."
     }
+  },
+  "invoice": {
+    "ocr": {
+      "title": "זיהוי OCR של חשבוניות",
+      "uploadDocument": "העלה מסמך",
+      "processOcr": "עבד OCR",
+      "noPdfSelected": "לא נבחר PDF",
+      "uploadFirst": "העלה קודם"
+    },
+    "documents": {
+      "title": "מסמכים",
+      "empty": "טרם הועלו מסמכים"
+    }
   }
 }

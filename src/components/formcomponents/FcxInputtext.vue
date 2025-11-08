@@ -1,7 +1,7 @@
 <template>
   <div class="fcx-field" :class="fieldClass">
     <!-- Label -->
-    <div v-if="label || $slots.labelSuffix" class="fcx-field-label-wrapper" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.25rem;">
+    <div v-if="label || $slots.labelSuffix" class="fcx-field-label-wrapper" style="display: flex; align-items: center; justify-content: space-between;">
       <label
         v-if="label"
         :for="inputId"

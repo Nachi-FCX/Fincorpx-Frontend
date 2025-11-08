@@ -45,5 +45,18 @@
       "min": "Le champ {field} doit contenir au moins {min} caractères.",
       "max": "Le champ {field} ne doit pas dépasser {max} caractères."
     }
+  },
+  "invoice": {
+    "ocr": {
+      "title": "OCR de Factures",
+      "uploadDocument": "Télécharger le Document",
+      "processOcr": "Traiter l'OCR",
+      "noPdfSelected": "Aucun PDF sélectionné",
+      "uploadFirst": "Télécharger d'abord"
+    },
+    "documents": {
+      "title": "Documents",
+      "empty": "Aucun document téléchargé pour le moment"
+    }
   }
 }
